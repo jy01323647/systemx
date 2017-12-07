@@ -1,122 +1,156 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xmlns:context="http://www.springframework.org/schema/context" xmlns:mvc="http://www.springframework.org/schema/mvc"
-	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.1.xsd
-		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.1.xsd
-		http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-4.1.xsd">
-    
-    <description>Spring MVC Configuration</description>
-    
-    <!-- 加载配置属性文件 -->
-	<context:property-placeholder ignore-unresolvable="true" location="classpath:jeesite.properties" />
-	
-	<!-- 使用Annotation自动注册Bean,只扫描@Controller -->
-	<context:component-scan base-package="com.thinkgem.jeesite" use-default-filters="false"><!-- base-package 如果多个，用“,”分隔 -->
-		<context:include-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:mvc="http://www.springframework.org/schema/mvc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p" xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+      http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+       http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context-3.0.xsd
+         http://www.springframework.org/schema/mvc
+		http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd 
+		http://cxf.apache.org/jaxws 
+   		http://cxf.apache.org/schemas/jaxws.xsd">
+	<!-- 自动扫描controller包下的所有类，使其认为spring mvc的控制器 -->
+	<!-- 加载controller的时候,不加载service,因为此时事物并未生效,若此时加载了service,那么事物无法对service进行拦截 -->
+	<context:component-scan base-package="org.jeecgframework.web.*,com.jeecg.*">
+		<context:exclude-filter type="annotation"
+			expression="org.springframework.stereotype.Service" />
 	</context:component-scan>
-    
-	<!-- 默认的注解映射的支持，org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping -->
-	<mvc:annotation-driven content-negotiation-manager="contentNegotiationManager">
-		<mvc:message-converters register-defaults="true">
-			<!-- 将StringHttpMessageConverter的默认编码设为UTF-8 -->
-			<bean class="org.springframework.http.converter.StringHttpMessageConverter">
-		    	<constructor-arg value="UTF-8" />
-			</bean>
-			<!-- 将Jackson2HttpMessageConverter的默认格式化输出为false -->
-			<bean class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter">
-                <property name="supportedMediaTypes">
-                	<list><value>application/json;charset=UTF-8</value></list>
-                </property>
-                <property name="prettyPrint" value="false"/>
-                <property name="objectMapper">  
-                    <bean class="com.thinkgem.jeesite.common.mapper.JsonMapper"></bean>  
-                </property> 
-            </bean>
-            <!-- 使用XML格式输出数据 -->
-            <bean class="org.springframework.http.converter.xml.MarshallingHttpMessageConverter">
-		        <constructor-arg>
-		        	<bean class="org.springframework.oxm.xstream.XStreamMarshaller">
-				        <property name="streamDriver">
-				            <bean class="com.thoughtworks.xstream.io.xml.StaxDriver"/>
-				        </property>
-				        <property name="annotatedClasses">
-				            <list>
-				                <value>com.thinkgem.jeesite.common.persistence.BaseEntity</value>
-				                <value>com.thinkgem.jeesite.common.supcan.treelist.TreeList</value>
-				                <value>com.thinkgem.jeesite.common.supcan.treelist.cols.Col</value>
-				                <value>com.thinkgem.jeesite.common.supcan.treelist.cols.Group</value>
-				            </list>
-				        </property>
-				    </bean>
-		        </constructor-arg>
-		        <property name="supportedMediaTypes" value="application/xml"></property>
-			</bean>
-		</mvc:message-converters>
-	</mvc:annotation-driven>
-	
-    <!-- REST中根据URL后缀自动判定Content-Type及相应的View -->
-	<bean id="contentNegotiationManager" class="org.springframework.web.accept.ContentNegotiationManagerFactoryBean">
-	    <property name="mediaTypes" >
-	        <map> 
-                <entry key="xml" value="application/xml"/> 
-                <entry key="json" value="application/json"/> 
-            </map>
-	    </property>
-        <property name="ignoreAcceptHeader" value="true"/>
-        <property name="favorPathExtension" value="true"/>
+
+	<!-- ApplicationContext -->
+	<bean class="org.jeecgframework.core.util.ApplicationContextUtil"></bean>
+	<bean class="org.jeecgframework.p3.core.utils.common.ApplicationContextUtil"></bean>
+
+	<!-- 避免IE执行AJAX时,返回JSON出现下载文件 -->
+	<bean id="mappingJacksonHttpMessageConverter"
+		class="org.springframework.http.converter.json.MappingJacksonHttpMessageConverter">
+		<property name="supportedMediaTypes">
+			<list>
+				<value>text/html;charset=UTF-8</value>
+				<value>text/json;charset=UTF-8</value>
+                <value>application/json;charset=UTF-8</value>
+			</list>
+		</property>
+	</bean>
+	<!-- 注册handler method和request的mapping关系。  -->
+	<bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping"/>
+	<!-- 启动Spring MVC的注解功能，完成请求和注解POJO的映射， 配置一个基于注解的定制的WebBindingInitializer，解决日期转换问题，方法级别的处理器映射 -->
+	<bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter">
+		<!-- class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter" -->
+		<property name="cacheSeconds" value="0" />
+		<property name="messageConverters">
+			<list>
+				<ref bean="mappingJacksonHttpMessageConverter" /><!-- json转换器 -->
+			</list>
+		</property>
+		<property name="webBindingInitializer">
+			<bean class="org.jeecgframework.core.interceptors.MyWebBinding" />
+		</property>
+	</bean>
+	<!-- 默认的视图解析器 在上边的解析错误时使用 (默认使用html)- -->
+	<bean id="defaultViewResolver"
+		class="org.springframework.web.servlet.view.InternalResourceViewResolver"
+		p:order="3">
+		<property name="viewClass"
+			value="org.springframework.web.servlet.view.JstlView" />
+		<property name="contentType" value="text/html" />
+		<property name="prefix" value="/webpage/" />
+		<property name="suffix" value=".jsp" />
+	</bean>
+	<bean id="multipartResolver"
+		class="org.springframework.web.multipart.commons.CommonsMultipartResolver"
+		p:defaultEncoding="UTF-8">
+		<property name="maxUploadSize">
+			<value>104857600</value>
+		</property>
+		<property name="maxInMemorySize">
+			<value>4096</value>
+		</property>
+	</bean>
+
+    <!-- Bean解析器,级别高于默认解析器,寻找bean对象进行二次处理 -->
+    <bean id="beanNameViewResolver"
+          class="org.springframework.web.servlet.view.BeanNameViewResolver" p:order="0">
+    </bean>
+    <!-- Excel 处理 根据用户输入进行对象处理 -->
+    <bean id="jeecgExcelView" class="org.jeecgframework.poi.excel.view.JeecgSingleExcelView" />
+    <bean id="jeecgTemplateExcelView" class="org.jeecgframework.poi.excel.view.JeecgTemplateExcelView" />
+    <bean id="jeecgTemplateWordView" class="org.jeecgframework.poi.excel.view.JeecgTemplateWordView" />
+    <bean id="jeecgMapExcelView" class="org.jeecgframework.poi.excel.view.JeecgMapExcelView" />
+	<!-- 方言 -->
+	<bean id="dialect"
+		class="org.jeecgframework.core.common.hibernate.dialect.DialectFactoryBean">
+		<property name="dbType" value="${jdbc.dbType}" />
+	</bean>
+	<!-- 异常处理类 -->
+	<bean id="exceptionHandler"
+		class="org.jeecgframework.core.common.exception.GlobalExceptionResolver" />
+	<!--  单点登录 kisso 注入初始化，也支持使用 web.xml 初始化 -->
+	<bean id="kissoInit" class="com.baomidou.kisso.web.WebKissoConfigurer" init-method="initKisso">
+		<property name="ssoPropPath" value="sso.properties" />
+		<!-- 不同环境配置选择设置 ,dev_mode/开发模式 ,test_mode/测试模式 ,online_mode/生产模式-->
+		<property name="runMode" value="test_mode" />
 	</bean>
 	
-	<!-- 定义视图文件解析 -->
-	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
-		<property name="prefix" value="${web.view.prefix}"/>
-		<property name="suffix" value="${web.view.suffix}"/>
-	</bean>
-	
-	<!-- 对静态资源文件的访问， 将无法mapping到Controller的path交给default servlet handler处理 -->
-	<mvc:default-servlet-handler />
-	
-	<!-- 静态资源映射 -->
-    <mvc:resources mapping="/static/**" location="/static/" cache-period="31536000"/>
-	
-	<!-- 定义无Controller的path<->view直接映射 -->
-	<mvc:view-controller path="/" view-name="redirect:${web.view.index}"/>
-	
-	<!-- 拦截器配置，拦截顺序：先执行后定义的，排在第一位的最后执行。-->
+	<!-- 拦截器 -->
 	<mvc:interceptors>
 		<mvc:interceptor>
-			<mvc:mapping path="${adminPath}/**" />
-			<mvc:exclude-mapping path="${adminPath}/"/>
-			<mvc:exclude-mapping path="${adminPath}/login"/>
-			<mvc:exclude-mapping path="${adminPath}/sys/menu/tree"/>
-			<mvc:exclude-mapping path="${adminPath}/sys/menu/treeData"/>
-			<mvc:exclude-mapping path="${adminPath}/oa/oaNotify/self/count"/>
-			<bean class="com.thinkgem.jeesite.modules.sys.interceptor.LogInterceptor" />
+			<mvc:mapping path="/**" />
+			<bean class="org.jeecgframework.core.interceptors.EncodingInterceptor" />
 		</mvc:interceptor>
-		<!-- 手机视图拦截器 -->
+		<mvc:interceptor>
+			<mvc:mapping path="/api/**" />
+			<bean class="org.jeecgframework.core.interceptors.SignInterceptor" />
+		</mvc:interceptor>
+		<!--add-end-dangzhenghui  20170402 for 添加 api延签拦截器 对签名统处理-->
 		<mvc:interceptor>
 			<mvc:mapping path="/**" />
-			<bean class="com.thinkgem.jeesite.modules.sys.interceptor.MobileInterceptor" />
+			<bean class="org.jeecgframework.core.interceptors.AuthInterceptor">
+				<property name="excludeUrls">
+					<list>
+						<value>loginController.do?goPwdInit</value>
+						<value>loginController.do?pwdInit</value>
+						<value>loginController.do?login</value>
+						<value>loginController.do?logout</value>
+						<value>loginController.do?changeDefaultOrg</value>
+                        <value>loginController.do?login2</value>
+						<value>loginController.do?login3</value>
+						<value>loginController.do?checkuser</value>
+						<value>loginController.do?checkuser=</value>
+						<value>repairController.do?repair</value>
+						<value>systemController.do?saveFiles</value>
+						<value>repairController.do?deleteAndRepair</value>
+						<value>userController.do?userOrgSelect</value>
+						<!--移动图表-->
+						<value>cgDynamGraphController.do?design</value>
+						<value>cgDynamGraphController.do?datagrid</value>
+						<!--online表单对外接口-->
+						<!--<value>cgFormDataController.do?getFormInfo</value>
+						<value>cgFormDataController.do?deleteFormInfo</value>
+						<value>cgFormDataController.do?addFormInfo</value>
+						<value>cgFormDataController.do?updateFormInfo</value>-->
+
+						<!-- 菜单样式图标预览 -->
+						<value>webpage/common/functionIconStyleList.jsp</value>
+						<value>timeTaskController.do?remoteTask</value>
+						
+					</list>
+				</property>
+				<!-- 模糊匹配 -->
+				<property name="excludeContainUrls">
+					<list>
+						<value>toLogin.do</value>
+					</list>
+				</property>
+			</bean>
 		</mvc:interceptor>
 	</mvc:interceptors>
-	
-	<!-- 支持Shiro对Controller的方法级AOP安全控制 begin-->
-	<bean class="org.springframework.aop.framework.autoproxy.DefaultAdvisorAutoProxyCreator" depends-on="lifecycleBeanPostProcessor">
-		<property name="proxyTargetClass" value="true" />
-	</bean>
-	
-	<bean class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver">
-		<property name="exceptionMappings">
-			<props>
-				<prop key="org.apache.shiro.authz.UnauthorizedException">error/403</prop>
-				<prop key="java.lang.Throwable">error/500</prop>
-			</props>
-			</property>
-	</bean>
-	<!-- 支持Shiro对Controller的方法级AOP安全控制 end -->
-	
-	<!-- 上传文件拦截，设置最大上传文件大小   10M=10*1024*1024(B)=10485760 bytes -->  
-	<bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">  
-		<property name="maxUploadSize" value="${web.maxUploadSize}" />  
-	</bean>
-	
+
+	<!-- 智能表单配置引入 -->
+	<import resource="classpath*:org/jeecgframework/web/cgform/common/spring-mvc-cgform.xml" />
+	<!--集成cxf webservice接口
+	<import resource="classpath:cxf-servlet.xml" />
+	-->
+	<!-- jeecg plugin dev -->
+	<import resource="classpath:config/spring-config-p3.xml" />
 </beans>
