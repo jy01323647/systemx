@@ -16,6 +16,6 @@ import org.springframework.web.context.WebApplicationContext;
 @Transactional
 public abstract class AbstractUnitTest {
 	@Autowired
-	protected WebApplicationContext wac;
+	protected WebApplicationContext wac;  
 
 }
