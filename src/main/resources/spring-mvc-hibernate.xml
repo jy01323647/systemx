@@ -21,6 +21,9 @@
 	<context:component-scan base-package="org.jeecgframework.web.*">
 			<context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller" />
 	</context:component-scan>
+	<context:component-scan base-package="com.sysmex.*">
+		<context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller" />
+	</context:component-scan>
 
 	<!-- 引入属性文件 -->
 	<context:property-placeholder location="classpath:dbconfig.properties" />
@@ -110,6 +113,7 @@
 				<value>org.jeecgframework.web.graphreport.entity.*</value>
 				<value>org.jeecgframework.web.system.sms.*</value>
 				<value>com.jeecg.*</value>
+				<value>com.sysmex.*</value>
 			</list>
 		</property>
 	</bean>

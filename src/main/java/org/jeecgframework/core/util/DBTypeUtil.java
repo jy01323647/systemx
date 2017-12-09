@@ -29,14 +29,15 @@ public class DBTypeUtil {
 				retStr="mysql";
 			}else if (dbdialect.contains("Oracle")) {//oracle有多个版本的方言
 				retStr = "oracle";
-			}else if (dbdialect.equals("org.hibernate.dialect.SQLServerDialect")) {
+			}else if (dbdialect.contains("SQLServer")){ //sqlserver多个版本的方言
+//			else if (dbdialect.equals("org.hibernate.dialect.SQLServerDialect")) {
 				retStr = "sqlserver";
 			}else if (dbdialect.equals("org.hibernate.dialect.PostgreSQLDialect")) {
 				retStr = "postgres";
 			}
-			else if (dbdialect.equals("org.jeecgframework.core.common.hibernate.dialect.MySQLServer2008Dialect")) {
-				retStr = "sqlserver";
-			}
+//			else if (dbdialect.equals("org.jeecgframework.core.common.hibernate.dialect.MySQLServer2008Dialect")) {
+//				retStr = "sqlserver";
+//			}
 			return retStr;
 		}
 	}
