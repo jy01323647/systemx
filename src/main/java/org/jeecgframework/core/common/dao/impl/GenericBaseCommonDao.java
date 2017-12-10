@@ -753,6 +753,25 @@ public abstract class GenericBaseCommonDao<T, PK extends Serializable>
 
 	}
 
+
+	public void getDataGridReturnByHql(HqlQuery hqlQuery,final boolean needParameter){
+		Query query = getSession().createQuery(hqlQuery.getQueryString());
+		if (needParameter) {
+			query.setParameters(hqlQuery.getParam(),
+					(Type[]) hqlQuery.getTypes());
+		}
+		int allCounts = query.list().size();
+		int curPageNO = hqlQuery.getCurPage();
+		int offset = PagerUtil.getOffset(allCounts, curPageNO,hqlQuery.getPageSize());
+//		String toolBar = PagerUtil.getBar(hqlQuery.getMyaction(), allCounts,
+//				curPageNO, hqlQuery.getPageSize(), hqlQuery.getMap());
+		query.setFirstResult(offset);
+		query.setMaxResults(hqlQuery.getPageSize());
+		hqlQuery.getDataGrid().setTotal(allCounts);
+		hqlQuery.getDataGrid().setResults(query.list());
+		//return new PageList(query.list(), toolBar, offset, curPageNO, allCounts);
+	}
+
 	/**
 	 * 获取分页记录SqlQuery
 	 *
@@ -1012,11 +1031,11 @@ public abstract class GenericBaseCommonDao<T, PK extends Serializable>
 	@SuppressWarnings({ "unchecked",})
 	public <T> List<T> executeProcedure(String executeSql,Object... params) {
 		SQLQuery sqlQuery = getSession().createSQLQuery(executeSql);
-		
+
 		for(int i=0;i<params.length;i++){
 			sqlQuery.setParameter(i, params[i]);
 		}
-		
+
 		return sqlQuery.list();
 	}
 

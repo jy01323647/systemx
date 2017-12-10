@@ -73,6 +73,12 @@ public class HqlQuery {
 		this.map = map;
 	}
 
+	public HqlQuery(String queryString, Object[] param, Type[] types) {
+		this.queryString = queryString;
+		this.param = param;
+		this.types = types;
+	}
+
 	public HqlQuery(String queryString, Map<String, Object> map) {
 		this.queryString = queryString;
 		this.map = map;

@@ -240,6 +240,7 @@ public interface IGenericBaseCommonDao {
 	public void getDataGridReturn(CriteriaQuery cq,
 			final boolean isOffset);
 
+	public void getDataGridReturnByHql(HqlQuery hqlQuery,final boolean needParameter);
 
 	/**
 	 * 执行SQL
