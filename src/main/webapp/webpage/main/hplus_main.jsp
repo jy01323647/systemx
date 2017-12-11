@@ -6,7 +6,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%--<%@include file="/context/mytags.jsp"%>--%>
+<%@include file="/context/mytags.jsp"%>
 <html>
 
 <head>
@@ -482,7 +482,7 @@
 <!-- 弹出TAB -->
 <script type="text/javascript" src="plug-in/hplus/hplus-tab.js"></script>
 <!-- 在线聊天 -->
-<%@include file="/context/layui.jsp"%>
+<%--<%@include file="/context/layui.jsp"%>--%>
 <script>
     function logout(){
         /*bootbox.confirm("<t:mutiLang langKey="common.exit.confirm"/>", function(result) {

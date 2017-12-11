@@ -10,7 +10,7 @@
 <link rel="stylesheet" type="text/css" href="plug-in/easyui/portal/portal.css">
 <!-- add-end--Author:jg_renjie  Date:20160315 for：配合首页改造，引入portal依赖的js及css文件 -->
 <!--add-start--Author:wangkun Date:20160813 for:内部聊天修改-->
-<%@include file="/context/layui.jsp"%>
+<%--<%@include file="/context/layui.jsp"%>--%>
 <!--add-end--Author:wangkun Date:20160813 for:内部聊天修改-->
 <link rel="shortcut icon" href="images/favicon.ico">
 <style type="text/css">
@@ -133,10 +133,10 @@ a:hover {
 </head>
 <body class="easyui-layout" style="overflow-y: hidden" scroll="no">
 <!-- 顶部-->
-<div region="north" border="false" title=" JEECG Framework  <t:mutiLang langKey="system.version.number"/>" style="BACKGROUND: #E6E6FA; height: 85px; padding: 1px; overflow: hidden;">
+<div region="north" border="false" title="<t:mutiLang langKey="jeect.platform"/>" style="BACKGROUND: #E6E6FA; height: 85px; padding: 1px; overflow: hidden;">
 <table width="100%" border="0" cellpadding="0" cellspacing="0">
 <tr>
-    <td align="left" style="vertical-align: text-bottom;"><img src="plug-in/login/images/head.png;"> <img src="plug-in/login/images/foot.png"></td>
+    <td align="left" style="vertical-align: text-bottom;"><img src="plug-in/login/images/sysmex.jpg;" width="155px" height="59px"> <%--<img src="plug-in/login/images/foot.png">--%></td>
     <td align="right" nowrap>
         <table>
             <tr>
@@ -151,10 +151,10 @@ a:hover {
             </tr>
             <tr>
                 <div style="position: absolute; right: 0px; bottom: 0px;">
-                    <a href="javascript:void(0);" class="easyui-menubutton" menu="#layout_north_kzmbMenu" iconCls="icon-help">
+                    <a href="javascript:void(0);" class="easyui-menubutton" menu="#layout_north_kzmbMenu" iconCls="icon-comturn">
                         <t:mutiLang langKey="common.control.panel"/>
                     </a>
-                    <a href="javascript:void(0);" class="easyui-menubutton" menu="#layout_north_zxMenu" iconCls="icon-back">
+                    <a href="javascript:void(0);" class="easyui-menubutton" menu="#layout_north_zxMenu" iconCls="icon-exit">
                         <t:mutiLang langKey="common.logout"/>
                     </a>
                 </div>
@@ -200,7 +200,7 @@ a:hover {
 <!-- 中间-->
 <div id="mainPanle" region="center" style="overflow: hidden;">
     <div id="maintabs" class="easyui-tabs" fit="true" border="false">
-    <div class="easyui-tab" title="<t:mutiLang langKey="common.dash_board"/>" href="loginController.do?home" style="padding: 2px; overflow: hidden;"></div>
+    <div class="easyui-tab" title="<t:mutiLang langKey="common.dash_board"/>" href="loginController.do?home" style="padding: 2px; overflow: auto;"></div>
         <c:if test="${map=='1'}">
             <div class="easyui-tab" title="<t:mutiLang langKey="common.map"/>" style="padding: 1px; overflow: hidden;">
                 <iframe name="myMap" id="myMap" scrolling="no" frameborder="0" src="mapController.do?map" style="width: 100%; height: 99.5%;"></iframe>
@@ -240,11 +240,11 @@ a:hover {
 <div region="south" border="false" style="height: 25px; overflow: hidden;">
     <div align="center" style="color: #CC99FF; padding-top: 2px">&copy;
         <t:mutiLang langKey="common.copyright"/>
-        <span class="tip">
+        <%--<span class="tip">
             <a href="http://www.jeecg.org" title=" JEECG Framework  <t:mutiLang langKey="system.version.number"/>"> JEECG Framework  <t:mutiLang langKey="system.version.number"/></a>
             <t:mutiLang langKey="common.copyright"/>:
             <a href="#" title=" JEECG Framework  <t:mutiLang langKey="system.version.number"/>">JEECG Framework  <t:mutiLang langKey="system.version.number"/></a>
-        </span>
+        </span>--%>
     </div>
 </div>
 <div id="mm" class="easyui-menu" style="width: 150px;">

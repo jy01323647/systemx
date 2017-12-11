@@ -94,8 +94,6 @@
 	function reject(title,addurl,gname){
 		$('#'+gname).datagrid('clearChecked');
 		$('#'+gname).datagrid('rejectChanges');
-
-
 	}
  
  </script>

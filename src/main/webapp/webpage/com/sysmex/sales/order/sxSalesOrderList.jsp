@@ -51,7 +51,7 @@
 
   </div>
  </div>
- <script src = "webpage/com/sysmex/sales.order/sxSalesOrderList.js"></script>		
+ <script src = "webpage/com/sysmex/sales/order/sxSalesOrderList.js"></script>
  <script type="text/javascript">
  $(document).ready(function(){
  });

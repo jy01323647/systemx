@@ -42,18 +42,17 @@
   <![endif]-->
 
 </head>
-<body class="login-layout light-login">
+<body class="login-layout blur-login">
 <div class="main-container">
   <div class="main-content">
     <div class="row">
       <div class="col-sm-10 col-sm-offset-1">
         <div class="login-container">
           <div class="center">
-            <h1 id="id-text2" class="grey">
-              <i class="ace-icon fa fa-leaf green"></i>
-               JEECG 演示系统
+            <h1 id="id-text2" class="white">
+              <i class="ace-icon fa fa-leaf green"></i>DMS
             </h1>
-            <h4 class="blue" id="id-company-text">www.jeecg.org</h4>
+            <%--<h4 class="blue" id="id-company-text">www.jeecg.org</h4>--%>
           </div>
           <div class="space-6"></div>
           <div class="position-relative">
@@ -121,8 +120,8 @@
                 </form>
               </div>
             </div>
-            <div class="center"><h4 class="blue" id="id-company-text">&copy; JEECG版权所有 v_3.7.1</h4></div>
-            <div class="navbar-fixed-top align-right">
+            <%--<div class="center"><h4 class="blue" id="id-company-text">&copy; JEECG版权所有 v_3.7.1</h4></div>--%>
+            <%--<div class="navbar-fixed-top align-right">
               <br />
               &nbsp;
               <a id="btn-login-dark" class="blue" href="#" onclick="darkStyle()">Dark</a>
@@ -135,7 +134,7 @@
               &nbsp;
               <a id="btn-login-light" class="blue" href="#" onclick="lightStyle()">Light</a>
               &nbsp; &nbsp; &nbsp;
-            </div>
+            </div>--%>
               </div>
             </div>
           </div>
