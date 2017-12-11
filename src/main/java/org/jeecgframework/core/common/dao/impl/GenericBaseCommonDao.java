@@ -772,6 +772,33 @@ public abstract class GenericBaseCommonDao<T, PK extends Serializable>
 		//return new PageList(query.list(), toolBar, offset, curPageNO, allCounts);
 	}
 
+
+	public void getDataGridReturnBySql(HqlQuery hqlQuery,final boolean needParameter,boolean isToEntity){
+		Query query = getSession().createSQLQuery(hqlQuery.getQueryString());
+		if (needParameter) {
+			query.setParameters(hqlQuery.getParam(),
+					(Type[]) hqlQuery.getTypes());
+		}
+		int allCounts = query.list().size();
+		int curPageNO = hqlQuery.getCurPage();
+		int offset = PagerUtil.getOffset(allCounts, curPageNO,hqlQuery.getPageSize());
+//		String toolBar = PagerUtil.getBar(hqlQuery.getMyaction(), allCounts,
+//				curPageNO, hqlQuery.getPageSize(), hqlQuery.getMap());
+		query.setFirstResult(offset);
+		query.setMaxResults(hqlQuery.getPageSize());
+		hqlQuery.getDataGrid().setTotal(allCounts);
+		List list = null;
+		if (isToEntity) {
+			list = ToEntityUtil.toEntityList(query.list(),
+					hqlQuery.getClass1(), hqlQuery.getDataGrid().getField()
+							.split(","));
+		} else {
+			list = query.list();
+		}
+		hqlQuery.getDataGrid().setResults(list);
+	}
+
+
 	/**
 	 * 获取分页记录SqlQuery
 	 *
