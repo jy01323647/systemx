@@ -244,7 +244,7 @@
 					  <label class="Validform_label" style="display: none;">单价</label>
 				   </td>
 				   <td align="left">
-							<input name="taaediOrderDetailList[${stuts.index }].pArrivalDate" maxlength="32" type="text" class="Wdate" onClick="WdatePicker()"  style="width:120px;"   ignore="ignore"  value="<fmt:formatDate value='${poVal.pArrivalDate}' type="date" pattern="yyyy-MM-dd"/>"/>
+							<input name="taaediOrderDetailList[${stuts.index }].ppArrivalDate" maxlength="32" type="text" class="Wdate" onClick="WdatePicker()"  style="width:120px;"   ignore="ignore"  value="<fmt:formatDate value='${poVal.ppArrivalDate}' type="date" pattern="yyyy-MM-dd"/>"/>
 					  <label class="Validform_label" style="display: none;">预计到货日期</label>
 				   </td>
 				   <td align="left">
