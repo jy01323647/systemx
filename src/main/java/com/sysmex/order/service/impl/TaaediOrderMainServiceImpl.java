@@ -105,7 +105,7 @@ public class TaaediOrderMainServiceImpl extends CommonServiceImpl implements Taa
 			/**保存-采购订单明细*/
 			for(TaaediOrderDetailEntity taaediOrderDetail:taaediOrderDetailList){
 				//外键设置
-				taaediOrderDetail.setmBillNo(taaediOrderMain.getmBillNo());
+				taaediOrderDetail.setMmBillNo(taaediOrderMain.getMmBillNo());
 				this.save(taaediOrderDetail);
 			}
 			//执行新增操作配置的sql增强
@@ -129,10 +129,10 @@ public class TaaediOrderMainServiceImpl extends CommonServiceImpl implements Taa
 		}
 		//===================================================================================
 		//获取参数
-		Object mBillNo0 = taaediOrderMain.getmBillNo();
+		Object mBillNo0 = taaediOrderMain.getMmBillNo();
 		//===================================================================================
 		//1.查询出数据库的明细数据-采购订单明细
-	    String hql0 = "from TaaediOrderDetailEntity where 1 = 1 AND mBillNo = ? ";
+	    String hql0 = "from TaaediOrderDetailEntity where 1 = 1 AND mmBillNo = ? ";
 	    List<TaaediOrderDetailEntity> taaediOrderDetailOldList = this.findHql(hql0,mBillNo0);
 		//2.筛选更新明细数据-采购订单明细
 		if(taaediOrderDetailList!=null&&taaediOrderDetailList.size()>0){
@@ -162,7 +162,7 @@ public class TaaediOrderMainServiceImpl extends CommonServiceImpl implements Taa
 			for(TaaediOrderDetailEntity taaediOrderDetail:taaediOrderDetailList){
 				if(oConvertUtils.isEmpty(taaediOrderDetail.getId())){
 					//外键设置
-					taaediOrderDetail.setmBillNo(taaediOrderMain.getmBillNo());
+					taaediOrderDetail.setMmBillNo(taaediOrderMain.getMmBillNo());
 					this.save(taaediOrderDetail);
 				}
 			}
@@ -177,7 +177,7 @@ public class TaaediOrderMainServiceImpl extends CommonServiceImpl implements Taa
 		this.delete(taaediOrderMain);
 		//===================================================================================
 		//获取参数
-		Object mBillNo0 = taaediOrderMain.getmBillNo();
+		Object mBillNo0 = taaediOrderMain.getMmBillNo();
 		//===================================================================================
 		//删除-采购订单明细
 	    String hql0 = "from TaaediOrderDetailEntity where 1 = 1 AND mBillNo = ? ";
@@ -227,7 +227,7 @@ public class TaaediOrderMainServiceImpl extends CommonServiceImpl implements Taa
  		sql  = sql.replace("#{sys_org_code}",String.valueOf(t.getSysOrgCode()));
  		sql  = sql.replace("#{sys_company_code}",String.valueOf(t.getSysCompanyCode()));
  		sql  = sql.replace("#{bpm_status}",String.valueOf(t.getBpmStatus()));
- 		sql  = sql.replace("#{m_bill_no}",String.valueOf(t.getmBillNo()));
+ 		sql  = sql.replace("#{m_bill_no}",String.valueOf(t.getMmBillNo()));
  		sql  = sql.replace("#{vendor_name}",String.valueOf(t.getVendorName()));
  		sql  = sql.replace("#{vendor_num}",String.valueOf(t.getVendorNum()));
  		sql  = sql.replace("#{t_quantity}",String.valueOf(t.gettQuantity()));

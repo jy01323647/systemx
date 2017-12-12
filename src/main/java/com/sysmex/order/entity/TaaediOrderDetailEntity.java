@@ -50,7 +50,7 @@ public class TaaediOrderDetailEntity implements java.io.Serializable {
 	/**流程状态*/
 	private java.lang.String bpmStatus;
 	/**主订单编号*/
-	private java.lang.String mBillNo;
+	private java.lang.String mmBillNo;
 	/**子订单编号*/
 	private java.lang.String billNo;
 	/**物品名称*/
@@ -86,7 +86,7 @@ public class TaaediOrderDetailEntity implements java.io.Serializable {
 	private java.lang.Double tAmount;
 	/**预计到货日期*/
     @Excel(name="预计到货日期",width=15,format = "yyyy-MM-dd")
-	private java.util.Date pArrivalDate;
+	private java.util.Date ppArrivalDate;
 	/**订单类型*/
     @Excel(name="订单类型",width=15,dicCode="bill_type")
 	private java.lang.String billType;
@@ -305,24 +305,22 @@ public class TaaediOrderDetailEntity implements java.io.Serializable {
 	public void setBpmStatus(java.lang.String bpmStatus){
 		this.bpmStatus = bpmStatus;
 	}
-	
+
+
 	/**
 	 *方法: 取得java.lang.String
 	 *@return: java.lang.String  主订单编号
 	 */
-	
+
 	@Column(name ="M_BILL_NO",nullable=true,length=50)
-	public java.lang.String getmBillNo(){
-		return this.mBillNo;
+	public String getMmBillNo() {
+		return mmBillNo;
 	}
 
-	/**
-	 *方法: 设置java.lang.String
-	 *@param: java.lang.String  主订单编号
-	 */
-	public void setmBillNo(java.lang.String mBillNo){
-		this.mBillNo = mBillNo;
+	public void setMmBillNo(String mmBillNo) {
+		this.mmBillNo = mmBillNo;
 	}
+
 	
 	/**
 	 *方法: 取得java.lang.String
@@ -539,24 +537,24 @@ public class TaaediOrderDetailEntity implements java.io.Serializable {
 	public void settAmount(java.lang.Double tAmount){
 		this.tAmount = tAmount;
 	}
-	
+
+
 	/**
 	 *方法: 取得java.util.Date
 	 *@return: java.util.Date  预计到货日期
 	 */
-	
+
+
+
 	@Column(name ="P_ARRIVAL_DATE",nullable=true,length=32)
-	public java.util.Date getpArrivalDate(){
-		return this.pArrivalDate;
+	public Date getPpArrivalDate() {
+		return ppArrivalDate;
 	}
 
-	/**
-	 *方法: 设置java.util.Date
-	 *@param: java.util.Date  预计到货日期
-	 */
-	public void setpArrivalDate(java.util.Date pArrivalDate){
-		this.pArrivalDate = pArrivalDate;
+	public void setPpArrivalDate(Date ppArrivalDate) {
+		this.ppArrivalDate = ppArrivalDate;
 	}
+
 	
 	/**
 	 *方法: 取得java.lang.String

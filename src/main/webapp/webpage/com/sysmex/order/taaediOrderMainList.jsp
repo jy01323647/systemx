@@ -14,7 +14,7 @@
    <t:dgCol title="所属部门"  field="sysOrgCode"  hidden="true"  queryMode="single"  width="120"></t:dgCol>
    <t:dgCol title="所属公司"  field="sysCompanyCode"  hidden="true"  queryMode="single"  width="120"></t:dgCol>
    <t:dgCol title="流程状态"  field="bpmStatus"  hidden="true"  queryMode="single"  dictionary="bpm_status"  width="120"></t:dgCol>
-   <t:dgCol title="主订单编号"  field="mBillNo"  query="true"  queryMode="single"  width="120"></t:dgCol>
+   <t:dgCol title="主订单编号"  field="mmBillNo"  query="true"  queryMode="single"  width="120"></t:dgCol>
    <t:dgCol title="供应商名称"  field="vendorName"  query="true"  queryMode="single"  width="120"></t:dgCol>
    <t:dgCol title="供应商编码"  field="vendorNum"  query="true"  queryMode="single"  width="120"></t:dgCol>
    <t:dgCol title="总数量"  field="tQuantity"  queryMode="single"  width="120"></t:dgCol>

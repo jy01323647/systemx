@@ -48,7 +48,7 @@
 				<label class="Validform_label">主订单编号:</label>
 			</td>
 			<td class="value">
-		     	 <input id="mBillNo" name="mBillNo" type="text" style="width: 150px" class="inputxt"  ignore="ignore" />
+		     	 <input id="mmBillNo" name="mmBillNo" type="text" style="width: 150px" class="inputxt"  ignore="ignore" />
 				<span class="Validform_checktip"></span>
 				<label class="Validform_label" style="display: none;">主订单编号</label>
 			</td>
@@ -105,7 +105,7 @@
 				<%-- 增加一个div，用于调节页面大小，否则默认太小 --%>
 				<div style="width:800px;height:1px;"></div>
 				<t:tabs id="tt" iframe="false" tabPosition="top" fit="false">
-				 <t:tab href="taaediOrderMainController.do?taaediOrderDetailList&mBillNo=${taaediOrderMainPage.mBillNo}" icon="icon-search" title="采购订单明细" id="taaediOrderDetail"></t:tab>
+				 <t:tab href="taaediOrderMainController.do?taaediOrderDetailList&mmBillNo=${taaediOrderMainPage.mmBillNo}" icon="icon-search" title="采购订单明细" id="taaediOrderDetail"></t:tab>
 				</t:tabs>
 			</div>
 			</t:formvalid>

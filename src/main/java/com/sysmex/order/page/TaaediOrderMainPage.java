@@ -50,7 +50,7 @@ public class TaaediOrderMainPage implements java.io.Serializable {
 	private java.lang.String bpmStatus;
 	/**主订单编号*/
     @Excel(name="主订单编号")
-	private java.lang.String mBillNo;
+	private java.lang.String mmBillNo;
 	/**供应商名称*/
     @Excel(name="供应商名称")
 	private java.lang.String vendorName;
@@ -231,21 +231,15 @@ public class TaaediOrderMainPage implements java.io.Serializable {
 	public void setBpmStatus(java.lang.String bpmStatus){
 		this.bpmStatus = bpmStatus;
 	}
-	/**
-	 *方法: 取得java.lang.String
-	 *@return: java.lang.String  主订单编号
-	 */
-	public java.lang.String getMBillNo(){
-		return this.mBillNo;
+
+	public String getMmBillNo() {
+		return mmBillNo;
 	}
 
-	/**
-	 *方法: 设置java.lang.String
-	 *@param: java.lang.String  主订单编号
-	 */
-	public void setMBillNo(java.lang.String mBillNo){
-		this.mBillNo = mBillNo;
+	public void setMmBillNo(String mmBillNo) {
+		this.mmBillNo = mmBillNo;
 	}
+
 	/**
 	 *方法: 取得java.lang.String
 	 *@return: java.lang.String  供应商名称

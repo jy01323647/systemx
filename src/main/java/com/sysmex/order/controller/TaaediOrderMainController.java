@@ -252,10 +252,10 @@ public class TaaediOrderMainController extends BaseController {
 	
 		//===================================================================================
 		//获取参数
-		Object mBillNo0 = taaediOrderMain.getmBillNo();
+		Object mBillNo0 = taaediOrderMain.getMmBillNo();
 		//===================================================================================
 		//查询-采购订单明细
-	    String hql0 = "from TaaediOrderDetailEntity where 1 = 1 AND mBillNo = ? ";
+	    String hql0 = "from TaaediOrderDetailEntity where 1 = 1 AND mmBillNo = ? ";
 	    try{
 	    	List<TaaediOrderDetailEntity> taaediOrderDetailEntityList = systemService.findHql(hql0,mBillNo0);
 			req.setAttribute("taaediOrderDetailList", taaediOrderDetailEntityList);
@@ -289,7 +289,7 @@ public class TaaediOrderMainController extends BaseController {
         		try{
         		TaaediOrderMainPage page=new TaaediOrderMainPage();
         		   MyBeanUtils.copyBeanNotNull2Bean(entity,page);
-           		    Object mBillNo0 = entity.getmBillNo();
+           		    Object mBillNo0 = entity.getMmBillNo();
 				    String hql0 = "from TaaediOrderDetailEntity where 1 = 1 AND mBillNo = ? ";
         	        List<TaaediOrderDetailEntity> taaediOrderDetailEntityList = systemService.findHql(hql0,mBillNo0);
             		page.setTaaediOrderDetailList(taaediOrderDetailEntityList);

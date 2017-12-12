@@ -100,7 +100,7 @@
 					<input name="taaediOrderDetailList[0].sysOrgCode" type="hidden"/>
 					<input name="taaediOrderDetailList[0].sysCompanyCode" type="hidden"/>
 					<input name="taaediOrderDetailList[0].bpmStatus" type="hidden"/>
-					<input name="taaediOrderDetailList[0].mBillNo" type="hidden"/>
+					<input name="taaediOrderDetailList[0].mmBillNo" type="hidden"/>
 					<input name="taaediOrderDetailList[0].billNo" type="hidden"/>
 					<input name="taaediOrderDetailList[0].itemCategory" type="hidden"/>
 					<input name="taaediOrderDetailList[0].tAmount" type="hidden"/>
@@ -196,7 +196,7 @@
 						<input name="taaediOrderDetailList[${stuts.index }].sysOrgCode" type="hidden" value="${poVal.sysOrgCode }"/>
 						<input name="taaediOrderDetailList[${stuts.index }].sysCompanyCode" type="hidden" value="${poVal.sysCompanyCode }"/>
 						<input name="taaediOrderDetailList[${stuts.index }].bpmStatus" type="hidden" value="${poVal.bpmStatus }"/>
-						<input name="taaediOrderDetailList[${stuts.index }].mBillNo" type="hidden" value="${poVal.mBillNo }"/>
+						<input name="taaediOrderDetailList[${stuts.index }].mmBillNo" type="hidden" value="${poVal.mmBillNo }"/>
 						<input name="taaediOrderDetailList[${stuts.index }].billNo" type="hidden" value="${poVal.billNo }"/>
 						<input name="taaediOrderDetailList[${stuts.index }].itemCategory" type="hidden" value="${poVal.itemCategory }"/>
 						<input name="taaediOrderDetailList[${stuts.index }].tAmount" type="hidden" value="${poVal.tAmount }"/>
