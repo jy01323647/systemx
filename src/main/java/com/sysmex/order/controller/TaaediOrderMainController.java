@@ -83,7 +83,7 @@ public class TaaediOrderMainController extends BaseController {
 
 	/**
 	 * 采购订单主表列表 页面跳转
-	 * 
+	 *
 	 * @return
 	 */
 	@RequestMapping(params = "list")
@@ -93,7 +93,7 @@ public class TaaediOrderMainController extends BaseController {
 
 	/**
 	 * easyui AJAX请求数据
-	 * 
+	 *
 	 * @param request
 	 * @param response
 	 * @param dataGrid
@@ -113,6 +113,41 @@ public class TaaediOrderMainController extends BaseController {
 		cq.add();
 		this.taaediOrderMainService.getDataGridReturnByHql(cq,true);
 		//this.taaediOrderMainService.getDataGridReturn(cq, true);
+		TagUtil.datagrid(response, dataGrid);
+	}
+
+	/**
+	 * 采购订单字表列表 页面跳转
+	 *
+	 * @return
+	 */
+	@RequestMapping(params = "listDetail")
+	public ModelAndView listDetail(HttpServletRequest request) {
+		return new ModelAndView("com/sysmex/order/taaediOrderListForDetail");
+	}
+
+	/**
+	 * easyui AJAX请求数据
+	 *
+	 * @param request
+	 * @param response
+	 * @param dataGrid
+	 * @param
+	 */
+
+	@RequestMapping(params = "datagridForDetail")
+	public void datagridForDetail(TaaediOrderDetailEntity taaediOrderDetail,HttpServletRequest request, HttpServletResponse response, DataGrid dataGrid) {
+		CriteriaQuery cq = new CriteriaQuery(TaaediOrderDetailEntity.class, dataGrid);
+		//查询条件组装器
+		org.jeecgframework.core.extend.hqlsearch.HqlGenerateUtil.installHql(cq, taaediOrderDetail);
+		try{
+			//自定义追加查询条件
+		}catch (Exception e) {
+			throw new BusinessException(e.getMessage());
+		}
+		cq.add();
+		//this.taaediOrderMainService.getDataGridReturnByHql(cq,true);
+		this.taaediOrderMainService.getDataGridReturn(cq, true);
 		TagUtil.datagrid(response, dataGrid);
 	}
 

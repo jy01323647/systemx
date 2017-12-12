@@ -96,7 +96,9 @@ public class TaaediOrderMainServiceImpl extends CommonServiceImpl implements Taa
 
 		//commonDao.getDataGridReturn(cq, isOffset);
 	}
-	
+
+
+
 	public void addMain(TaaediOrderMainEntity taaediOrderMain,
 	        List<TaaediOrderDetailEntity> taaediOrderDetailList){
 			//保存主信息
