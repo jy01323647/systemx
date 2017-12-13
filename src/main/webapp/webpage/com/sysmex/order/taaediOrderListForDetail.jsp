@@ -3,7 +3,7 @@
 <t:base type="jquery,easyui,tools,DatePicker"></t:base>
 <div class="easyui-layout" fit="true">
   <div region="center" style="padding:0px;border:0px">
-  <t:datagrid name="taaediOrderDetailList" checkbox="false" pagination="true" fitColumns="true" title="采购订单明细表" actionUrl="taaediOrderMainController.do?datagridForDetail" idField="id" fit="true" queryMode="group">
+  <t:datagrid name="taaediOrderDetailList" checkbox="false" pagination="true" fitColumns="false" title="采购订单明细表" actionUrl="taaediOrderMainController.do?datagridForDetail" idField="id" fit="true" queryMode="group">
    <t:dgCol title="主键"  field="id"  hidden="true"  queryMode="single"  width="120"></t:dgCol>
    <t:dgCol title="创建人名称"  field="createName"  hidden="true"  queryMode="single"  width="120"></t:dgCol>
    <t:dgCol title="创建人登录名称"  field="createBy"  hidden="true"  queryMode="single"  width="120"></t:dgCol>
@@ -42,7 +42,7 @@
    <t:dgCol title="备注"  field="memo"  queryMode="single"  width="120"></t:dgCol>
    <t:dgCol title="删除标记"  field="delflag"  hidden="true"  queryMode="single"  width="120"></t:dgCol>
    <t:dgCol title="删除时间"  field="delDate"  hidden="true"  queryMode="single"  width="120"></t:dgCol>
-  
+
 
 
    <t:dgToolBar title="查看" icon="icon-search" url="taaediOrderDetailController.do?goUpdate" funname="detail"></t:dgToolBar>

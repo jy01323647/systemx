@@ -267,6 +267,30 @@ public class HqlGenerateUtil {
 		}
 	}
 
+
+	public static Map installQueryParams(Object searchObj){
+		//返回值
+		Map paramsMap = new HashMap();
+		PropertyDescriptor origDescriptors[] = PropertyUtils.getPropertyDescriptors(searchObj);
+		String name,type;
+		for (int i = 0; i < origDescriptors.length; i++) {
+			name = origDescriptors[i].getName();
+			//type = origDescriptors[i].getPropertyType().toString();
+
+			try {
+				Object value = PropertyUtils.getSimpleProperty(searchObj, name);
+				if (value == null || value.equals("") || name.equals("class")){
+					continue;
+				}
+				paramsMap.put(name,value);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+
+		}
+		return paramsMap;
+	}
+
 	/**
 	 * 判断数据规则是不是包含这个实体类
 	 * 
@@ -400,7 +424,7 @@ public class HqlGenerateUtil {
 	 * 根据对象拼装sql 
 	 * TODO 结合DataRule
 	 * @param list
-	 * @param tab格式化
+	 * tab格式化
 	 * @return
 	 */
 	public static String getSql(List<QueryCondition> list,String tab,Class claszz){

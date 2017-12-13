@@ -243,6 +243,7 @@ public interface IGenericBaseCommonDao {
 	public void getDataGridReturnByHql(HqlQuery hqlQuery,final boolean needParameter);
 
 	public void getDataGridReturnBySql(HqlQuery hqlQuery,final boolean needParameter, boolean isToEntity);
+	public void getDataGridReturnBySql(HqlQuery hqlQuery);
 
 	/**
 	 * 执行SQL
