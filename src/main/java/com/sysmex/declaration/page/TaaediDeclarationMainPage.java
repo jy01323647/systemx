@@ -66,7 +66,7 @@ public class TaaediDeclarationMainPage implements java.io.Serializable {
 	private java.lang.String customsBroker;
 	/**报关总金额*/
     @Excel(name="报关总金额")
-	private java.math.BigDecimal tamount;
+	private java.math.BigDecimal totalAmount;
 	/**备案号*/
     @Excel(name="备案号")
 	private java.lang.String customsRecordno;
@@ -382,16 +382,16 @@ public class TaaediDeclarationMainPage implements java.io.Serializable {
 	 *方法: 取得java.math.BigDecimal
 	 *@return: java.math.BigDecimal  报关总金额
 	 */
-	public java.math.BigDecimal getTamount(){
-		return this.tamount;
+	public java.math.BigDecimal getTotalAmount(){
+		return this.totalAmount;
 	}
 
 	/**
 	 *方法: 设置java.math.BigDecimal
 	 *@param: java.math.BigDecimal  报关总金额
 	 */
-	public void setTamount(java.math.BigDecimal tamount){
-		this.tamount = tamount;
+	public void setTamount(java.math.BigDecimal totalAmount){
+		this.totalAmount = totalAmount;
 	}
 	/**
 	 *方法: 取得java.lang.String

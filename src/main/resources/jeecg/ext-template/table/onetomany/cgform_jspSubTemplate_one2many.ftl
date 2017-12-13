@@ -41,6 +41,9 @@
 <div style="padding: 3px; height: 25px;width:auto;" class="datagrid-toolbar">
 	<a id="add${entityName}Btn" href="#">添加</a> <a id="del${entityName}Btn" href="#">删除</a> 
 </div>
+<#-- update begin author:matthewqu date:20171214 for 为明细表的table加入滚动条-->
+<div style="overflow:auto">
+<#-- update end author:matthewqu date:20171214 for 为明细表的table加入滚动条-->
 <table border="0" cellpadding="2" cellspacing="0" id="${entityName?uncap_first}_table">
 	<tr bgcolor="#E6E6E6">
 		<td align="center" bgcolor="#EEEEEE" style="width: 25px;">序号</td>
@@ -173,3 +176,5 @@
 	</c:if>	
 	</tbody>
 </table>
+</div>
+

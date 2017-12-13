@@ -29,6 +29,7 @@
 <div style="padding: 3px; height: 25px;width:auto;" class="datagrid-toolbar">
 	<a id="addTaaediDeclarationPackDetailBtn" href="#">添加</a> <a id="delTaaediDeclarationPackDetailBtn" href="#">删除</a> 
 </div>
+<div style="overflow:auto">
 <table border="0" cellpadding="2" cellspacing="0" id="taaediDeclarationPackDetail_table">
 	<tr bgcolor="#E6E6E6">
 		<td align="center" bgcolor="#EEEEEE" style="width: 25px;">序号</td>
@@ -253,7 +254,7 @@
 					  <label class="Validform_label" style="display: none;">订单总金额</label>
 					</td>
 				  <td align="left">
-					  	<input name="taaediDeclarationPackDetailList[0].pArrivalDate" maxlength="50" type="text" class="inputxt"  style="width:120px;"  ignore="ignore" >
+					  	<input name="taaediDeclarationPackDetailList[0].planArrivalDate" maxlength="50" type="text" class="inputxt"  style="width:120px;"  ignore="ignore" >
 					  <label class="Validform_label" style="display: none;">预计到货日期</label>
 					</td>
 				  <td align="left">
@@ -417,7 +418,7 @@
 					  <label class="Validform_label" style="display: none;">订单总金额</label>
 				   </td>
 				   <td align="left">
-					  	<input name="taaediDeclarationPackDetailList[${stuts.index }].pArrivalDate" maxlength="50" type="text" class="inputxt"  style="width:120px;"  ignore="ignore"  value="${poVal.pArrivalDate }"/>
+					  	<input name="taaediDeclarationPackDetailList[${stuts.index }].planArrivalDate" maxlength="50" type="text" class="inputxt"  style="width:120px;"  ignore="ignore"  value="${poVal.planArrivalDate }"/>
 					  <label class="Validform_label" style="display: none;">预计到货日期</label>
 				   </td>
 				   <td align="left">
@@ -473,3 +474,4 @@
 	</c:if>	
 	</tbody>
 </table>
+</div>

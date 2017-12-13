@@ -45,21 +45,60 @@
 	<table cellpadding="0" cellspacing="1" class="formtable">
 		<tr>
 			<td align="right">
-				<label class="Validform_label">报关发票号:</label>
+				<label class="Validform_label">是否紧急:</label>
+			</td>
+			<td class="value">
+				<%--<input id="urgentFlag" name="urgentFlag" type="text" style="width: 150px" class="inputxt"  ignore="ignore" />--%>
+				<t:dictSelect field="urgentFlag" type="list"   typeGroupCode="sf_yn"  defaultVal="" hasLabel="false"  title="币种"></t:dictSelect>
+				<span class="Validform_checktip"></span>
+				<label class="Validform_label" style="display: none;">是否紧急</label>
+			</td>
+			<td align="right">
+				<label class="Validform_label">进出口公司:</label>
+			</td>
+			<td class="value">
+				<input id="impExpCorp" name="impExpCorp" type="text" style="width: 150px" class="inputxt"  ignore="ignore" />
+				<span class="Validform_checktip"></span>
+				<label class="Validform_label" style="display: none;">进出口公司</label>
+			</td>
+		</tr>
+		<tr>
+			<td align="right">
+				<label class="Validform_label">发票号:</label>
 			</td>
 			<td class="value">
 		     	 <input id="customsInvoiceNo" name="customsInvoiceNo" type="text" style="width: 150px" class="inputxt"  ignore="ignore" />
 				<span class="Validform_checktip"></span>
-				<label class="Validform_label" style="display: none;">报关发票号</label>
+				<label class="Validform_label" style="display: none;">发票号</label>
 			</td>
+
 			<td align="right">
-				<label class="Validform_label">海关单号:</label>
+				<label class="Validform_label">报关合同号:</label>
 			</td>
 			<td class="value">
-		     	 <input id="customsNo" name="customsNo" type="text" style="width: 150px" class="inputxt"  ignore="ignore" />
+				<input id="contractNo" name="contractNo" type="text" style="width: 150px" class="inputxt"  ignore="ignore" />
 				<span class="Validform_checktip"></span>
-				<label class="Validform_label" style="display: none;">海关单号</label>
+				<label class="Validform_label" style="display: none;">报关合同号</label>
 			</td>
+		</tr>
+		<tr>
+			<td align="right">
+				<label class="Validform_label">报关行:</label>
+			</td>
+			<td class="value">
+				<input id="customsBroker" name="customsBroker" type="text" style="width: 150px" class="inputxt"  ignore="ignore" />
+				<span class="Validform_checktip"></span>
+				<label class="Validform_label" style="display: none;">报关行</label>
+			</td>
+			<td align="right">
+				<label class="Validform_label">报关单:</label>
+			</td>
+			<td class="value">
+				<input id="customsBill" name="customsBill" type="text" style="width: 150px" class="inputxt"  ignore="ignore" />
+				<span class="Validform_checktip"></span>
+				<label class="Validform_label" style="display: none;">报关单</label>
+			</td>
+
 		</tr>
 		<tr>
 			<td align="right">
@@ -71,6 +110,34 @@
 				<label class="Validform_label" style="display: none;">提交申请日期</label>
 			</td>
 			<td align="right">
+				<label class="Validform_label">备注:</label>
+			</td>
+			<td class="value">
+				<input id="memo" name="memo" type="text" style="width: 150px" class="inputxt"  ignore="ignore" />
+				<span class="Validform_checktip"></span>
+				<label class="Validform_label" style="display: none;">备注</label>
+			</td>
+		</tr>
+		<tr>
+			<td align="right">
+				<label class="Validform_label">海关单号:</label>
+			</td>
+			<td class="value">
+				<input id="customsNo" name="customsNo" type="text" style="width: 150px" class="inputxt"  ignore="ignore" />
+				<span class="Validform_checktip"></span>
+				<label class="Validform_label" style="display: none;">海关单号</label>
+			</td>
+			<td align="right">
+				<label class="Validform_label">报关总金额:</label>
+			</td>
+			<td class="value">
+				<input id="totalAmount" name="totalAmount" type="text" style="width: 150px" class="inputxt"  ignore="ignore" />
+				<span class="Validform_checktip"></span>
+				<label class="Validform_label" style="display: none;">报关总金额</label>
+			</td>
+		</tr>
+		<tr>
+			<td align="right">
 				<label class="Validform_label">贸易方式:</label>
 			</td>
 			<td class="value">
@@ -78,26 +145,6 @@
 				<span class="Validform_checktip"></span>
 				<label class="Validform_label" style="display: none;">贸易方式</label>
 			</td>
-		</tr>
-		<tr>
-			<td align="right">
-				<label class="Validform_label">报关行:</label>
-			</td>
-			<td class="value">
-		     	 <input id="customsBroker" name="customsBroker" type="text" style="width: 150px" class="inputxt"  ignore="ignore" />
-				<span class="Validform_checktip"></span>
-				<label class="Validform_label" style="display: none;">报关行</label>
-			</td>
-			<td align="right">
-				<label class="Validform_label">报关总金额:</label>
-			</td>
-			<td class="value">
-		     	 <input id="tamount" name="tamount" type="text" style="width: 150px" class="inputxt"  ignore="ignore" />
-				<span class="Validform_checktip"></span>
-				<label class="Validform_label" style="display: none;">报关总金额</label>
-			</td>
-		</tr>
-		<tr>
 			<td align="right">
 				<label class="Validform_label">备案号:</label>
 			</td>
@@ -106,24 +153,28 @@
 				<span class="Validform_checktip"></span>
 				<label class="Validform_label" style="display: none;">备案号</label>
 			</td>
+		</tr>
+		<%-- 以下字段Demo中为显示信息，不可录入 --%>
+		<tr>
 			<td align="right">
-				<label class="Validform_label">进出口公司:</label>
+				<label class="Validform_label">进口口岸:</label>
 			</td>
 			<td class="value">
-		     	 <input id="impExpCorp" name="impExpCorp" type="text" style="width: 150px" class="inputxt"  ignore="ignore" />
+				<input id="importPort" name="importPort" type="text" style="width: 150px" class="inputxt"  ignore="ignore" />
 				<span class="Validform_checktip"></span>
-				<label class="Validform_label" style="display: none;">进出口公司</label>
+				<label class="Validform_label" style="display: none;">进口口岸</label>
 			</td>
-		</tr>
-		<tr>
 			<td align="right">
 				<label class="Validform_label">运输方式:</label>
 			</td>
+
 			<td class="value">
 		     	 <input id="shippingType" name="shippingType" type="text" style="width: 150px" class="inputxt"  ignore="ignore" />
 				<span class="Validform_checktip"></span>
 				<label class="Validform_label" style="display: none;">运输方式</label>
 			</td>
+		</tr>
+		<tr>
 			<td align="right">
 				<label class="Validform_label">运输工具名称:</label>
 			</td>
@@ -132,16 +183,16 @@
 				<span class="Validform_checktip"></span>
 				<label class="Validform_label" style="display: none;">运输工具名称</label>
 			</td>
-		</tr>
-		<tr>
 			<td align="right">
 				<label class="Validform_label">运单号:</label>
 			</td>
 			<td class="value">
-		     	 <input id="waybillNo" name="waybillNo" type="text" style="width: 150px" class="inputxt"  ignore="ignore" />
+				<input id="waybillNo" name="waybillNo" type="text" style="width: 150px" class="inputxt"  ignore="ignore" />
 				<span class="Validform_checktip"></span>
 				<label class="Validform_label" style="display: none;">运单号</label>
 			</td>
+		</tr>
+		<tr>
 			<td align="right">
 				<label class="Validform_label">收货单位:</label>
 			</td>
@@ -153,14 +204,6 @@
 		</tr>
 		<tr>
 			<td align="right">
-				<label class="Validform_label">报关合同号:</label>
-			</td>
-			<td class="value">
-		     	 <input id="contractNo" name="contractNo" type="text" style="width: 150px" class="inputxt"  ignore="ignore" />
-				<span class="Validform_checktip"></span>
-				<label class="Validform_label" style="display: none;">报关合同号</label>
-			</td>
-			<td align="right">
 				<label class="Validform_label">征免性质:</label>
 			</td>
 			<td class="value">
@@ -168,8 +211,6 @@
 				<span class="Validform_checktip"></span>
 				<label class="Validform_label" style="display: none;">征免性质</label>
 			</td>
-		</tr>
-		<tr>
 			<td align="right">
 				<label class="Validform_label">征税比例:</label>
 			</td>
@@ -178,6 +219,8 @@
 				<span class="Validform_checktip"></span>
 				<label class="Validform_label" style="display: none;">征税比例</label>
 			</td>
+		</tr>
+		<tr>
 			<td align="right">
 				<label class="Validform_label">许可证号:</label>
 			</td>
@@ -186,8 +229,7 @@
 				<span class="Validform_checktip"></span>
 				<label class="Validform_label" style="display: none;">许可证号</label>
 			</td>
-		</tr>
-		<tr>
+
 			<td align="right">
 				<label class="Validform_label">启运国:</label>
 			</td>
@@ -196,6 +238,8 @@
 				<span class="Validform_checktip"></span>
 				<label class="Validform_label" style="display: none;">启运国</label>
 			</td>
+		</tr>
+		<tr>
 			<td align="right">
 				<label class="Validform_label">装货港:</label>
 			</td>
@@ -203,16 +247,6 @@
 		     	 <input id="loadingPort" name="loadingPort" type="text" style="width: 150px" class="inputxt"  ignore="ignore" />
 				<span class="Validform_checktip"></span>
 				<label class="Validform_label" style="display: none;">装货港</label>
-			</td>
-		</tr>
-		<tr>
-			<td align="right">
-				<label class="Validform_label">进口口岸:</label>
-			</td>
-			<td class="value">
-		     	 <input id="importPort" name="importPort" type="text" style="width: 150px" class="inputxt"  ignore="ignore" />
-				<span class="Validform_checktip"></span>
-				<label class="Validform_label" style="display: none;">进口口岸</label>
 			</td>
 			<td align="right">
 				<label class="Validform_label">境内目的地:</label>
@@ -261,6 +295,12 @@
 		</tr>
 		<tr>
 			<td align="right">
+				<label class="Validform_label">随附单证:</label>
+			</td>
+			<td class="value">
+				随附单证
+			</td>
+			<td align="right">
 				<label class="Validform_label">用途:</label>
 			</td>
 			<td class="value">
@@ -268,87 +308,23 @@
 				<span class="Validform_checktip"></span>
 				<label class="Validform_label" style="display: none;">用途</label>
 			</td>
-			<td align="right">
-				<label class="Validform_label">报关状态:</label>
-			</td>
-			<td class="value">
-		     	 <input id="status" name="status" type="text" style="width: 150px" class="inputxt"  ignore="ignore" />
-				<span class="Validform_checktip"></span>
-				<label class="Validform_label" style="display: none;">报关状态</label>
-			</td>
 		</tr>
 		<tr>
 			<td align="right">
-				<label class="Validform_label">报关单:</label>
+				<label class="Validform_label">报关费用:</label>
 			</td>
 			<td class="value">
-		     	 <input id="customsBill" name="customsBill" type="text" style="width: 150px" class="inputxt"  ignore="ignore" />
-				<span class="Validform_checktip"></span>
-				<label class="Validform_label" style="display: none;">报关单</label>
-			</td>
-			<td align="right">
-				<label class="Validform_label">税单:</label>
-			</td>
-			<td class="value">
-		     	 <input id="taxBill" name="taxBill" type="text" style="width: 150px" class="inputxt"  ignore="ignore" />
-				<span class="Validform_checktip"></span>
-				<label class="Validform_label" style="display: none;">税单</label>
+		     	100?
 			</td>
 		</tr>
-		<tr>
-			<td align="right">
-				<label class="Validform_label">进岸清单:</label>
-			</td>
-			<td class="value">
-		     	 <input id="impList" name="impList" type="text" style="width: 150px" class="inputxt"  ignore="ignore" />
-				<span class="Validform_checktip"></span>
-				<label class="Validform_label" style="display: none;">进岸清单</label>
-			</td>
-			<td align="right">
-				<label class="Validform_label">是否紧急标志:</label>
-			</td>
-			<td class="value">
-		     	 <input id="urgentFlag" name="urgentFlag" type="text" style="width: 150px" class="inputxt"  ignore="ignore" />
-				<span class="Validform_checktip"></span>
-				<label class="Validform_label" style="display: none;">是否紧急标志</label>
-			</td>
-		</tr>
-		<tr>
-			<td align="right">
-				<label class="Validform_label">附件标志:</label>
-			</td>
-			<td class="value">
-		     	 <input id="attachmentFlag" name="attachmentFlag" type="text" style="width: 150px" class="inputxt"  datatype="n"  ignore="ignore" />
-				<span class="Validform_checktip"></span>
-				<label class="Validform_label" style="display: none;">附件标志</label>
-			</td>
-			<td align="right">
-				<label class="Validform_label">预警提示:</label>
-			</td>
-			<td class="value">
-		     	 <input id="remarkFlag" name="remarkFlag" type="text" style="width: 150px" class="inputxt"  datatype="n"  ignore="ignore" />
-				<span class="Validform_checktip"></span>
-				<label class="Validform_label" style="display: none;">预警提示</label>
-			</td>
-		</tr>
-		<tr>
-			<td align="right">
-				<label class="Validform_label">备注:</label>
-			</td>
-			<td class="value">
-		     	 <input id="memo" name="memo" type="text" style="width: 150px" class="inputxt"  ignore="ignore" />
-				<span class="Validform_checktip"></span>
-				<label class="Validform_label" style="display: none;">备注</label>
-			</td>
-		</tr>
-	
+
 	</table>
 			<div style="width: auto;height: 200px;">
 				<%-- 增加一个div，用于调节页面大小，否则默认太小 --%>
 				<div style="width:800px;height:1px;"></div>
 				<t:tabs id="tt" iframe="false" tabPosition="top" fit="false">
-				 <t:tab href="taaediDeclarationMainController.do?taaediDeclarationPackDetailList&id=${taaediDeclarationMainPage.id}" icon="icon-search" title="报关箱单明细" id="taaediDeclarationPackDetail"></t:tab>
 				 <t:tab href="taaediDeclarationMainController.do?taaediDeclarationDetailList&id=${taaediDeclarationMainPage.id}" icon="icon-search" title="报关明细" id="taaediDeclarationDetail"></t:tab>
+				 <t:tab href="taaediDeclarationMainController.do?taaediDeclarationPackDetailList&id=${taaediDeclarationMainPage.id}" icon="icon-search" title="箱单明细" id="taaediDeclarationPackDetail"></t:tab>
 				</t:tabs>
 			</div>
 			</t:formvalid>
@@ -520,13 +496,13 @@
 					  	<input name="taaediDeclarationDetailList[#index#].customsGoodsName" maxlength="50" type="text" class="inputxt"  style="width:120px;"  ignore="ignore" />
 					  <label class="Validform_label" style="display: none;">海关品名称</label>
 				  </td>
+					<td align="left">
+						<input name="taaediDeclarationDetailList[#index#].units" maxlength="20" type="text" class="inputxt"  style="width:120px;"  ignore="ignore" />
+						<label class="Validform_label" style="display: none;">单位</label>
+					</td>
 				  <td align="left">
 					  	<input name="taaediDeclarationDetailList[#index#].provenance" maxlength="50" type="text" class="inputxt"  style="width:120px;"  ignore="ignore" />
 					  <label class="Validform_label" style="display: none;">原产国</label>
-				  </td>
-				  <td align="left">
-					  	<input name="taaediDeclarationDetailList[#index#].currency" maxlength="50" type="text" class="inputxt"  style="width:120px;"  ignore="ignore" />
-					  <label class="Validform_label" style="display: none;">币种</label>
 				  </td>
 				  <td align="left">
 					  	<input name="taaediDeclarationDetailList[#index#].customsQuantity" maxlength="20" type="text" class="inputxt"  style="width:120px;"  ignore="ignore" />
@@ -576,6 +552,10 @@
 					  	<input name="taaediDeclarationDetailList[#index#].licenceEndangered" maxlength="50" type="text" class="inputxt"  style="width:120px;"  ignore="ignore" />
 					  <label class="Validform_label" style="display: none;">濒危证</label>
 				  </td>
+			      <td align="left">
+						<input name="taaediDeclarationDetailList[#index#].currency" maxlength="50" type="text" class="inputxt"  style="width:120px;"  ignore="ignore" />
+						<label class="Validform_label" style="display: none;">币种</label>
+				  </td>
 				  <td align="left">
 					  	<input name="taaediDeclarationDetailList[#index#].freeFlag" maxlength="50" type="text" class="inputxt"  style="width:120px;"  ignore="ignore" />
 					  <label class="Validform_label" style="display: none;">免征标志</label>
@@ -583,10 +563,6 @@
 				  <td align="left">
 					  	<input name="taaediDeclarationDetailList[#index#].packageType" maxlength="50" type="text" class="inputxt"  style="width:120px;"  ignore="ignore" />
 					  <label class="Validform_label" style="display: none;">包装规格</label>
-				  </td>
-				  <td align="left">
-					  	<input name="taaediDeclarationDetailList[#index#].units" maxlength="20" type="text" class="inputxt"  style="width:120px;"  ignore="ignore" />
-					  <label class="Validform_label" style="display: none;">单位</label>
 				  </td>
 				  <td align="left">
 					  	<input name="taaediDeclarationDetailList[#index#].netWeight" maxlength="20" type="text" class="inputxt"  style="width:120px;"  ignore="ignore" />
@@ -604,11 +580,12 @@
 					  	<input name="taaediDeclarationDetailList[#index#].volume" maxlength="20" type="text" class="inputxt"  style="width:120px;"  ignore="ignore" />
 					  <label class="Validform_label" style="display: none;">体积</label>
 				  </td>
+				<%--
 				  <td align="left">
 					  	<input name="taaediDeclarationDetailList[#index#].urgentFlag" maxlength="50" type="text" class="inputxt"  style="width:120px;"  ignore="ignore" />
 					  <label class="Validform_label" style="display: none;">是否紧急标志</label>
 				  </td>
-				  <td align="left">
+				 <td align="left">
 					  	<input name="taaediDeclarationDetailList[#index#].attachmentFlag" maxlength="3" type="text" class="inputxt"  style="width:120px;"  datatype="n"  ignore="ignore" />
 					  <label class="Validform_label" style="display: none;">附件标志</label>
 				  </td>
@@ -619,7 +596,7 @@
 				  <td align="left">
 					  	<input name="taaediDeclarationDetailList[#index#].memo" maxlength="500" type="text" class="inputxt"  style="width:120px;"  ignore="ignore" />
 					  <label class="Validform_label" style="display: none;">备注</label>
-				  </td>
+				  </td>--%>
 			</tr>
 		 </tbody>
 		</table>

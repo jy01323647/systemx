@@ -405,7 +405,7 @@ public class UserController extends BaseController {
 	public void datagrid(TSUser user,HttpServletRequest request, HttpServletResponse response, DataGrid dataGrid) {
         CriteriaQuery cq = new CriteriaQuery(TSUser.class, dataGrid);
         //查询条件组装器
-        org.jeecgframework.core.extend.hqlsearch.HqlGenerateUtil.installHql(cq, user);
+        org.jeecgframework.core.extend.hqlsearch.HqlGenerateUtil.installHql(cq, user,request.getParameterMap());
 
         Short[] userstate = new Short[]{Globals.User_Normal, Globals.User_ADMIN, Globals.User_Forbidden};
         cq.in("status", userstate);

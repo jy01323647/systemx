@@ -29,6 +29,7 @@
 <div style="padding: 3px; height: 25px;width:auto;" class="datagrid-toolbar">
 	<a id="addTaaediDeclarationDetailBtn" href="#">添加</a> <a id="delTaaediDeclarationDetailBtn" href="#">删除</a> 
 </div>
+<div style="overflow:auto">
 <table border="0" cellpadding="2" cellspacing="0" id="taaediDeclarationDetail_table">
 	<tr bgcolor="#E6E6E6">
 		<td align="center" bgcolor="#EEEEEE" style="width: 25px;">序号</td>
@@ -42,12 +43,13 @@
 				  <td align="left" bgcolor="#EEEEEE" style="width: 126px;">
 						海关品名称
 				  </td>
+				<td align="left" bgcolor="#EEEEEE" style="width: 126px;">
+					单位
+				</td>
 				  <td align="left" bgcolor="#EEEEEE" style="width: 126px;">
 						原产国
 				  </td>
-				  <td align="left" bgcolor="#EEEEEE" style="width: 126px;">
-						币种
-				  </td>
+
 				  <td align="left" bgcolor="#EEEEEE" style="width: 126px;">
 						本次报关数量
 				  </td>
@@ -84,15 +86,16 @@
 				  <td align="left" bgcolor="#EEEEEE" style="width: 126px;">
 						濒危证
 				  </td>
+		          <td align="left" bgcolor="#EEEEEE" style="width: 126px;">
+						币种
+				  </td>
 				  <td align="left" bgcolor="#EEEEEE" style="width: 126px;">
 						免征标志
 				  </td>
 				  <td align="left" bgcolor="#EEEEEE" style="width: 126px;">
 						包装规格
 				  </td>
-				  <td align="left" bgcolor="#EEEEEE" style="width: 126px;">
-						单位
-				  </td>
+
 				  <td align="left" bgcolor="#EEEEEE" style="width: 126px;">
 						净重
 				  </td>
@@ -105,7 +108,7 @@
 				  <td align="left" bgcolor="#EEEEEE" style="width: 126px;">
 						体积
 				  </td>
-				  <td align="left" bgcolor="#EEEEEE" style="width: 126px;">
+				 <%-- <td align="left" bgcolor="#EEEEEE" style="width: 126px;">
 						是否紧急标志
 				  </td>
 				  <td align="left" bgcolor="#EEEEEE" style="width: 126px;">
@@ -116,7 +119,7 @@
 				  </td>
 				  <td align="left" bgcolor="#EEEEEE" style="width: 126px;">
 						备注
-				  </td>
+				  </td>--%>
 	</tr>
 	<tbody id="add_taaediDeclarationDetail_table">
 	<c:if test="${fn:length(taaediDeclarationDetailList)  <= 0 }">
@@ -148,13 +151,13 @@
 					  	<input name="taaediDeclarationDetailList[0].customsGoodsName" maxlength="50" type="text" class="inputxt"  style="width:120px;"  ignore="ignore" >
 					  <label class="Validform_label" style="display: none;">海关品名称</label>
 					</td>
+				<td align="left">
+					<input name="taaediDeclarationDetailList[0].units" maxlength="20" type="text" class="inputxt"  style="width:120px;"  ignore="ignore" >
+					<label class="Validform_label" style="display: none;">单位</label>
+				</td>
 				  <td align="left">
 					  	<input name="taaediDeclarationDetailList[0].provenance" maxlength="50" type="text" class="inputxt"  style="width:120px;"  ignore="ignore" >
 					  <label class="Validform_label" style="display: none;">原产国</label>
-					</td>
-				  <td align="left">
-					  	<input name="taaediDeclarationDetailList[0].currency" maxlength="50" type="text" class="inputxt"  style="width:120px;"  ignore="ignore" >
-					  <label class="Validform_label" style="display: none;">币种</label>
 					</td>
 				  <td align="left">
 					  	<input name="taaediDeclarationDetailList[0].customsQuantity" maxlength="20" type="text" class="inputxt"  style="width:120px;"  ignore="ignore" >
@@ -205,6 +208,10 @@
 					  <label class="Validform_label" style="display: none;">濒危证</label>
 					</td>
 				  <td align="left">
+					     <input name="taaediDeclarationDetailList[0].currency" maxlength="50" type="text" class="inputxt"  style="width:120px;"  ignore="ignore" >
+					   <label class="Validform_label" style="display: none;">币种</label>
+				  </td>
+				  <td align="left">
 					  	<input name="taaediDeclarationDetailList[0].freeFlag" maxlength="50" type="text" class="inputxt"  style="width:120px;"  ignore="ignore" >
 					  <label class="Validform_label" style="display: none;">免征标志</label>
 					</td>
@@ -212,10 +219,7 @@
 					  	<input name="taaediDeclarationDetailList[0].packageType" maxlength="50" type="text" class="inputxt"  style="width:120px;"  ignore="ignore" >
 					  <label class="Validform_label" style="display: none;">包装规格</label>
 					</td>
-				  <td align="left">
-					  	<input name="taaediDeclarationDetailList[0].units" maxlength="20" type="text" class="inputxt"  style="width:120px;"  ignore="ignore" >
-					  <label class="Validform_label" style="display: none;">单位</label>
-					</td>
+
 				  <td align="left">
 					  	<input name="taaediDeclarationDetailList[0].netWeight" maxlength="20" type="text" class="inputxt"  style="width:120px;"  ignore="ignore" >
 					  <label class="Validform_label" style="display: none;">净重</label>
@@ -232,7 +236,7 @@
 					  	<input name="taaediDeclarationDetailList[0].volume" maxlength="20" type="text" class="inputxt"  style="width:120px;"  ignore="ignore" >
 					  <label class="Validform_label" style="display: none;">体积</label>
 					</td>
-				  <td align="left">
+				  <%--<td align="left">
 					  	<input name="taaediDeclarationDetailList[0].urgentFlag" maxlength="50" type="text" class="inputxt"  style="width:120px;"  ignore="ignore" >
 					  <label class="Validform_label" style="display: none;">是否紧急标志</label>
 					</td>
@@ -247,7 +251,7 @@
 				  <td align="left">
 					  	<input name="taaediDeclarationDetailList[0].memo" maxlength="500" type="text" class="inputxt"  style="width:120px;"  ignore="ignore" >
 					  <label class="Validform_label" style="display: none;">备注</label>
-					</td>
+					</td>--%>
    			</tr>
 	</c:if>
 	<c:if test="${fn:length(taaediDeclarationDetailList)  > 0 }">
@@ -269,52 +273,53 @@
 						<input name="taaediDeclarationDetailList[${stuts.index }].delDate" type="hidden" value="${poVal.delDate }"/>
 						<input name="taaediDeclarationDetailList[${stuts.index }].mainId" type="hidden" value="${poVal.mainId }"/>
 				   <td align="left">
-					  	<input name="taaediDeclarationDetailList[${stuts.index }].customsInvoiceNo" maxlength="50" type="text" class="inputxt"  style="width:120px;"  ignore="ignore"  value="${poVal.customsInvoiceNo }"/>
-					  <label class="Validform_label" style="display: none;">报关发票号</label>
+					  <%--<label class="Validform_label" style="display: none;">报关发票号</label>--%>
+						   ${poVal.customsInvoiceNo}
 				   </td>
 				   <td align="left">
-					  	<input name="taaediDeclarationDetailList[${stuts.index }].customsGoodsNum" maxlength="50" type="text" class="inputxt"  style="width:120px;"  ignore="ignore"  value="${poVal.customsGoodsNum }"/>
-					  <label class="Validform_label" style="display: none;">海关品编号</label>
+					  <%--<label class="Validform_label" style="display: none;">海关品编号</label>--%>
+						   ${poVal.customsGoodsNum }
 				   </td>
 				   <td align="left">
-					  	<input name="taaediDeclarationDetailList[${stuts.index }].customsGoodsName" maxlength="50" type="text" class="inputxt"  style="width:120px;"  ignore="ignore"  value="${poVal.customsGoodsName }"/>
-					  <label class="Validform_label" style="display: none;">海关品名称</label>
+					 <%-- <label class="Validform_label" style="display: none;">海关品名称</label>--%>
+						   ${poVal.customsGoodsName }
 				   </td>
+					<td align="left">
+							<%--<label class="Validform_label" style="display: none;">单位</label>--%>
+							${poVal.units }
+					</td>
 				   <td align="left">
-					  	<input name="taaediDeclarationDetailList[${stuts.index }].provenance" maxlength="50" type="text" class="inputxt"  style="width:120px;"  ignore="ignore"  value="${poVal.provenance }"/>
-					  <label class="Validform_label" style="display: none;">原产国</label>
+					 <%-- <label class="Validform_label" style="display: none;">原产国</label>--%>
+							 ${poVal.provenance }
 				   </td>
-				   <td align="left">
-					  	<input name="taaediDeclarationDetailList[${stuts.index }].currency" maxlength="50" type="text" class="inputxt"  style="width:120px;"  ignore="ignore"  value="${poVal.currency }"/>
-					  <label class="Validform_label" style="display: none;">币种</label>
-				   </td>
+
 				   <td align="left">
 					  	<input name="taaediDeclarationDetailList[${stuts.index }].customsQuantity" maxlength="20" type="text" class="inputxt"  style="width:120px;"  ignore="ignore"  value="${poVal.customsQuantity }"/>
-					  <label class="Validform_label" style="display: none;">本次报关数量</label>
+					  <label class="Validform_label" style="display: none;">报关数量</label>
 				   </td>
 				   <td align="left">
-					  	<input name="taaediDeclarationDetailList[${stuts.index }].unitPriceOriginal" maxlength="20" type="text" class="inputxt"  style="width:120px;"  ignore="ignore"  value="${poVal.unitPriceOriginal }"/>
-					  <label class="Validform_label" style="display: none;">原始单价</label>
+					  <%--<label class="Validform_label" style="display: none;">原始单价</label>--%>
+						   ${poVal.unitPriceOriginal }
 				   </td>
 				   <td align="left">
-					  	<input name="taaediDeclarationDetailList[${stuts.index }].unitPriceBase" maxlength="20" type="text" class="inputxt"  style="width:120px;"  ignore="ignore"  value="${poVal.unitPriceBase }"/>
-					  <label class="Validform_label" style="display: none;">基准单价</label>
+					  <%--<label class="Validform_label" style="display: none;">基准单价</label>--%>
+						   ${poVal.unitPriceBase }
 				   </td>
 				   <td align="left">
 					  	<input name="taaediDeclarationDetailList[${stuts.index }].unitPriceUpdate" maxlength="20" type="text" class="inputxt"  style="width:120px;"  ignore="ignore"  value="${poVal.unitPriceUpdate }"/>
 					  <label class="Validform_label" style="display: none;">调整单价</label>
 				   </td>
 				   <td align="left">
-					  	<input name="taaediDeclarationDetailList[${stuts.index }].unitPriceShippingfee" maxlength="20" type="text" class="inputxt"  style="width:120px;"  ignore="ignore"  value="${poVal.unitPriceShippingfee }"/>
-					  <label class="Validform_label" style="display: none;">运费分摊单价</label>
+					  <%--<label class="Validform_label" style="display: none;">运费分摊单价</label>--%>
+						   ${poVal.unitPriceShippingfee }
 				   </td>
 				   <td align="left">
-					  	<input name="taaediDeclarationDetailList[${stuts.index }].untiPriceTotal" maxlength="20" type="text" class="inputxt"  style="width:120px;"  ignore="ignore"  value="${poVal.untiPriceTotal }"/>
-					  <label class="Validform_label" style="display: none;">合计单价</label>
+					  <%--<label class="Validform_label" style="display: none;">合计单价</label>--%>
+						   ${poVal.untiPriceTotal }
 				   </td>
 				   <td align="left">
-					  	<input name="taaediDeclarationDetailList[${stuts.index }].customsAmount" maxlength="20" type="text" class="inputxt"  style="width:120px;"  ignore="ignore"  value="${poVal.customsAmount }"/>
-					  <label class="Validform_label" style="display: none;">报关金额</label>
+					  <%--<label class="Validform_label" style="display: none;">报关金额</label>--%>
+						   ${poVal.customsAmount }
 				   </td>
 				   <td align="left">
 					  	<input name="taaediDeclarationDetailList[${stuts.index }].hscode" maxlength="50" type="text" class="inputxt"  style="width:120px;"  ignore="ignore"  value="${poVal.hscode }"/>
@@ -337,34 +342,34 @@
 					  <label class="Validform_label" style="display: none;">濒危证</label>
 				   </td>
 				   <td align="left">
-					  	<input name="taaediDeclarationDetailList[${stuts.index }].freeFlag" maxlength="50" type="text" class="inputxt"  style="width:120px;"  ignore="ignore"  value="${poVal.freeFlag }"/>
-					  <label class="Validform_label" style="display: none;">免征标志</label>
+						<%-- <label class="Validform_label" style="display: none;">币种</label>--%>
+						${poVal.currency }
 				   </td>
 				   <td align="left">
-					  	<input name="taaediDeclarationDetailList[${stuts.index }].packageType" maxlength="50" type="text" class="inputxt"  style="width:120px;"  ignore="ignore"  value="${poVal.packageType }"/>
-					  <label class="Validform_label" style="display: none;">包装规格</label>
+					  <%--<label class="Validform_label" style="display: none;">免征标志</label>--%>
+						   ${poVal.freeFlag }
 				   </td>
 				   <td align="left">
-					  	<input name="taaediDeclarationDetailList[${stuts.index }].units" maxlength="20" type="text" class="inputxt"  style="width:120px;"  ignore="ignore"  value="${poVal.units }"/>
-					  <label class="Validform_label" style="display: none;">单位</label>
+					  <%--<label class="Validform_label" style="display: none;">包装规格</label>--%>
+						   ${poVal.packageType }
 				   </td>
 				   <td align="left">
-					  	<input name="taaediDeclarationDetailList[${stuts.index }].netWeight" maxlength="20" type="text" class="inputxt"  style="width:120px;"  ignore="ignore"  value="${poVal.netWeight }"/>
-					  <label class="Validform_label" style="display: none;">净重</label>
+					  <%--<label class="Validform_label" style="display: none;">净重</label>--%>
+						   ${poVal.netWeight }
 				   </td>
 				   <td align="left">
-					  	<input name="taaediDeclarationDetailList[${stuts.index }].grossWeight" maxlength="20" type="text" class="inputxt"  style="width:120px;"  ignore="ignore"  value="${poVal.grossWeight }"/>
-					  <label class="Validform_label" style="display: none;">毛重</label>
+					  <%--<label class="Validform_label" style="display: none;">毛重</label>--%>
+						   ${poVal.grossWeight }
 				   </td>
 				   <td align="left">
-					  	<input name="taaediDeclarationDetailList[${stuts.index }].dimension" maxlength="50" type="text" class="inputxt"  style="width:120px;"  ignore="ignore"  value="${poVal.dimension }"/>
-					  <label class="Validform_label" style="display: none;">长宽高</label>
+					 <%-- <label class="Validform_label" style="display: none;">长宽高</label>--%>
+						   ${poVal.dimension }
 				   </td>
 				   <td align="left">
-					  	<input name="taaediDeclarationDetailList[${stuts.index }].volume" maxlength="20" type="text" class="inputxt"  style="width:120px;"  ignore="ignore"  value="${poVal.volume }"/>
-					  <label class="Validform_label" style="display: none;">体积</label>
+					 <%-- <label class="Validform_label" style="display: none;">体积</label>--%>
+						   ${poVal.volume }
 				   </td>
-				   <td align="left">
+				   <%--<td align="left">
 					  	<input name="taaediDeclarationDetailList[${stuts.index }].urgentFlag" maxlength="50" type="text" class="inputxt"  style="width:120px;"  ignore="ignore"  value="${poVal.urgentFlag }"/>
 					  <label class="Validform_label" style="display: none;">是否紧急标志</label>
 				   </td>
@@ -379,9 +384,10 @@
 				   <td align="left">
 					  	<input name="taaediDeclarationDetailList[${stuts.index }].memo" maxlength="500" type="text" class="inputxt"  style="width:120px;"  ignore="ignore"  value="${poVal.memo }"/>
 					  <label class="Validform_label" style="display: none;">备注</label>
-				   </td>
+				   </td>--%>
    			</tr>
 		</c:forEach>
 	</c:if>	
 	</tbody>
 </table>
+</div>

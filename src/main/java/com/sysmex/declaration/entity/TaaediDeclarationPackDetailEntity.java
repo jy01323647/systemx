@@ -120,7 +120,7 @@ public class TaaediDeclarationPackDetailEntity implements java.io.Serializable {
 	private java.math.BigDecimal poAmount;
 	/**预计到货日期*/
     @Excel(name="预计到货日期",width=15)
-	private java.lang.String pArrivalDate;
+	private java.lang.String planArrivalDate;
 	/**订单类型*/
     @Excel(name="订单类型",width=15)
 	private java.lang.String billType;
@@ -767,16 +767,16 @@ public class TaaediDeclarationPackDetailEntity implements java.io.Serializable {
 	 */
 	
 	@Column(name ="P_ARRIVAL_DATE",nullable=true,length=50)
-	public java.lang.String getPArrivalDate(){
-		return this.pArrivalDate;
+	public java.lang.String getPlanArrivalDate(){
+		return this.planArrivalDate;
 	}
 
 	/**
 	 *方法: 设置java.lang.String
 	 *@param: java.lang.String  预计到货日期
 	 */
-	public void setPArrivalDate(java.lang.String pArrivalDate){
-		this.pArrivalDate = pArrivalDate;
+	public void setPlanArrivalDate(java.lang.String planArrivalDate){
+		this.planArrivalDate = planArrivalDate;
 	}
 	
 	/**

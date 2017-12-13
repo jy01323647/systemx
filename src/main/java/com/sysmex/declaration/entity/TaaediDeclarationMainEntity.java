@@ -66,7 +66,7 @@ public class TaaediDeclarationMainEntity implements java.io.Serializable {
 	private java.lang.String customsBroker;
 	/**报关总金额*/
     @Excel(name="报关总金额",width=15)
-	private java.math.BigDecimal tamount;
+	private java.math.BigDecimal totalAmount;
 	/**备案号*/
     @Excel(name="备案号",width=15)
 	private java.lang.String customsRecordno;
@@ -431,17 +431,17 @@ public class TaaediDeclarationMainEntity implements java.io.Serializable {
 	 *@return: java.math.BigDecimal  报关总金额
 	 */
 	
-	@Column(name ="TAMOUNT",nullable=true,scale=3,length=20)
-	public java.math.BigDecimal getTamount(){
-		return this.tamount;
+	@Column(name ="TOTAL_AMOUNT",nullable=true,scale=3,length=20)
+	public java.math.BigDecimal getTotalAmount(){
+		return this.totalAmount;
 	}
 
 	/**
 	 *方法: 设置java.math.BigDecimal
 	 *@param: java.math.BigDecimal  报关总金额
 	 */
-	public void setTamount(java.math.BigDecimal tamount){
-		this.tamount = tamount;
+	public void setTotalAmount(java.math.BigDecimal totalAmount){
+		this.totalAmount = totalAmount;
 	}
 	
 	/**

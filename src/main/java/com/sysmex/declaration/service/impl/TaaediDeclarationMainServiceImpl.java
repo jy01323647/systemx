@@ -213,7 +213,7 @@ public class TaaediDeclarationMainServiceImpl extends CommonServiceImpl implemen
  		sql  = sql.replace("#{application_date}",String.valueOf(t.getApplicationDate()));
  		sql  = sql.replace("#{trade_mode}",String.valueOf(t.getTradeMode()));
  		sql  = sql.replace("#{customs_broker}",String.valueOf(t.getCustomsBroker()));
- 		sql  = sql.replace("#{tamount}",String.valueOf(t.getTamount()));
+ 		sql  = sql.replace("#{total_amount}",String.valueOf(t.getTotalAmount()));
  		sql  = sql.replace("#{customs_recordno}",String.valueOf(t.getCustomsRecordno()));
  		sql  = sql.replace("#{imp_exp_corp}",String.valueOf(t.getImpExpCorp()));
  		sql  = sql.replace("#{shipping_type}",String.valueOf(t.getShippingType()));
