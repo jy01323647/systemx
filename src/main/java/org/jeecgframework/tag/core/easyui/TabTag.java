@@ -28,6 +28,7 @@ public class TabTag extends TagSupport {
 	private String content;
 	private boolean closable=false;//是否带关闭按钮
 	private String langArg;
+	private boolean hscrollBar=false; //是否显示横向滚动条
 	
 	public int doStartTag() throws JspTagException {
 		return EVAL_PAGE;
@@ -35,7 +36,7 @@ public class TabTag extends TagSupport {
 	public int doEndTag() throws JspTagException {
 		Tag t = findAncestorWithClass(this, TabsTag.class);
 		TabsTag parent = (TabsTag) t;
-		parent.setTab( id, title,iframe, href, icon, cache, content, width, heigth,closable);
+		parent.setTab( id, title,iframe, href, icon, cache, content, width, heigth,closable,hscrollBar);
 		return EVAL_PAGE;
 	}
 	public void setHref(String href) {
@@ -73,5 +74,10 @@ public class TabTag extends TagSupport {
 	public void setIframe(String iframe) {
 		this.iframe = iframe;
 	}
-	
+	public boolean isHscrollBar() {
+		return hscrollBar;
+	}
+	public void setHscrollBar(boolean hscrollBar) {
+		this.hscrollBar = hscrollBar;
+	}
 }

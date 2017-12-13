@@ -172,9 +172,9 @@ public class TabsTag extends JeecgTag {
 			if (!iframe) {
 				for (Tab tab : tabList) {
 					if (tab.getHref() != null) {
-						sb.append("<div title=\"" + tab.getTitle() + "\" " + (tab.getIcon() != null ? ("iconCls=\"" + tab.getIcon() + "\" ") : "") + " href=\"" + tab.getHref() + "\" style=\"margin:0px;padding:0px;overflow-x:hidden;overflow-y:auto;width=auto;\"></div>");
+						sb.append("<div title=\"" + tab.getTitle() + "\" " + (tab.getIcon() != null ? ("iconCls=\"" + tab.getIcon() + "\" ") : "") + " href=\"" + tab.getHref() + "\" style=\"margin:0px;padding:0px;overflow-x:"+ (tab.isHscrollBar()?"auto":"hidden") +";overflow-y:auto;width=auto;\"></div>");
 					} else {
-						sb.append("<div " + (tab.getIcon() != null ? ("iconCls=\"" + tab.getIcon() + "\" ") : "") + " title=\"" + tab.getTitle() + "\"  style=\"margin:0px;padding:0px;overflow-x:hidden;overflow-y:auto;width=auto;\">");
+						sb.append("<div " + (tab.getIcon() != null ? ("iconCls=\"" + tab.getIcon() + "\" ") : "") + " title=\"" + tab.getTitle() + "\"  style=\"margin:0px;padding:0px;overflow-x:"+ (tab.isHscrollBar()?"auto":"hidden") +";overflow-y:auto;width=auto;\">");
 
 						sb.append("<iframe id=\""+tab.getId()+"\" scrolling=\"no\" frameborder=\"0\"  src=\""+tab.getIframe()+"\" width=\""+oConvertUtils.getString(tab.getWidth(), "100%")+"\" height=\""+oConvertUtils.getString(tab.getHeigth(), "99.5%")+"\"></iframe>");
 
@@ -191,7 +191,7 @@ public class TabsTag extends JeecgTag {
 		return sb;
 	}
 
-	public void setTab(String id, String title,String iframe, String href, String iconCls, boolean cache, String content, String width, String heigth, boolean closable) {
+	public void setTab(String id, String title,String iframe, String href, String iconCls, boolean cache, String content, String width, String heigth, boolean closable,boolean hscrollBar) {
 		Tab tab = new Tab();
 		tab.setId(id);
 		tab.setTitle(title);
@@ -203,6 +203,7 @@ public class TabsTag extends JeecgTag {
 		tab.setIcon(iconCls);
 		tab.setWidth(width);
 		tab.setClosable(closable);
+		tab.setHscrollBar(hscrollBar);
 		tabList.add(tab);
 	}
 

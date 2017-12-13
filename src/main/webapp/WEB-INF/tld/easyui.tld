@@ -948,6 +948,11 @@
 			<rtexprvalue>true</rtexprvalue>
 			<description>选项卡是否带关闭按钮</description>
 		</attribute>
+		<attribute>
+			<name>hscrollBar</name>
+			<rtexprvalue>true</rtexprvalue>
+			<description>是否显示横向滚动条</description>
+		</attribute>
 	</tag>
 	<tag>
 		<name>upload</name>

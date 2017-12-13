@@ -17,6 +17,7 @@ public class Tab {
 	private boolean cache;
 	private String content;
 	private boolean closable=true;
+	private boolean hscrollBar;
 	/**
 	 * @return the closable
 	 */
@@ -103,5 +104,11 @@ public class Tab {
 		this.iframe = iframe;
 	}
 
+	public boolean isHscrollBar() {
+		return hscrollBar;
+	}
 
+	public void setHscrollBar(boolean hscrollBar) {
+		this.hscrollBar = hscrollBar;
+	}
 }
