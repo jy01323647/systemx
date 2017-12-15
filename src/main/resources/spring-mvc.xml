@@ -152,5 +152,5 @@
 	<import resource="classpath:cxf-servlet.xml" />
 	-->
 	<!-- jeecg plugin dev -->
-	<import resource="classpath:config/spring-config-p3.xml" />
+	<!--<import resource="classpath:config/spring-config-p3.xml" />-->
 </beans>

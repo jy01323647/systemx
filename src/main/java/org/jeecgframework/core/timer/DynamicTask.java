@@ -10,7 +10,7 @@ import org.apache.log4j.Logger;
 import org.jeecgframework.core.constant.Globals;
 import org.jeecgframework.core.util.IpUtil;
 import org.jeecgframework.core.util.MyClassLoader;
-import org.jeecgframework.p3.core.common.utils.StringUtil;
+//import org.jeecgframework.p3.core.common.utils.StringUtil;
 import org.jeecgframework.web.system.pojo.base.TSTimeTaskEntity;
 import org.jeecgframework.web.system.service.SystemService;
 import org.jeecgframework.web.system.service.TimeTaskServiceI;
@@ -21,7 +21,7 @@ import org.quartz.SchedulerException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.quartz.CronTriggerBean;
 import org.springframework.stereotype.Service;
-
+import org.springframework.util.StringUtils;
 
 
 /**
@@ -176,7 +176,7 @@ public class DynamicTask {
 				try {
 
 					String runServerIp = task.getRunServerIp();					
-					if(ipList.contains(runServerIp) || StringUtil.isEmpty(runServerIp) || "本地".equals(runServerIp)){//当前服务器IP匹配成功
+					if(ipList.contains(runServerIp) || StringUtils.isEmpty(runServerIp) || "本地".equals(runServerIp)){//当前服务器IP匹配成功
 
 						//quartz 1.6
 						JobDetail jobDetail = new JobDetail();

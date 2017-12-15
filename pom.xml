@@ -907,33 +907,33 @@
 			<type>jar</type>
 		</dependency>
 		<!-- 插件demo -->
-		<dependency>
+		<!--<dependency>
 			<groupId>org.p3framework</groupId>
 			<artifactId>jeecg-p3-biz-demo</artifactId>
 			<version>1.0.2</version>
-		</dependency>
+		</dependency>-->
 		
 		<!-- 插件: 我的邮箱 -->
-		<dependency>
+		<!--<dependency>
 			<groupId>org.p3framework</groupId>
 			<artifactId>jeecg-p3-biz-mail</artifactId>
 			<version>1.0.0</version>
 			<type>jar</type>
-		</dependency>
+		</dependency>-->
 		
 		 <!-- 在线聊天工具-->
-		<dependency>
+		<!--<dependency>
 			<groupId>org.p3framework</groupId>
 			<artifactId>jeecg-p3-biz-chat</artifactId>
 			<version>1.0.2</version>
-		</dependency>
+		</dependency>-->
 		
 		<!-- begin 腾讯云-->
-		<dependency>
+		<!--<dependency>
 			<groupId>com.qcloud</groupId>
 			<artifactId>cos_api</artifactId>
 			<version>4.4</version>
-		</dependency>
+		</dependency>-->
 		<dependency>
 			<groupId>org.apache.httpcomponents</groupId>
 			<artifactId>httpclient</artifactId>
@@ -953,15 +953,15 @@
 		
 	</dependencies>
 
-	<organization>
+	<!--<organization>
 		<name>JEECG 智能快速开发平台</name>
 		<url>www.jeecg.org</url>
-	</organization>
+	</organization>-->
 	<build>
 		<plugins>
 			
 		   <!-- tomcat插件 -->
-	       <plugin>
+	      <!-- <plugin>
 	                <groupId>org.codehaus.mojo</groupId>
 	                <artifactId>tomcat-maven-plugin</artifactId>
 	                <version>1.1</version>
@@ -972,8 +972,8 @@
 	                    <url>http://localhost:8080/manager/html</url>
 	                    <server>tomcat6</server>
 	                </configuration>
-	            </plugin>
-	        <plugin>  
+	            </plugin>-->
+	        <plugin>
                 <artifactId>maven-compiler-plugin</artifactId>  
                 <version>2.3.2</version>  
                 <configuration>  
@@ -1015,7 +1015,6 @@
 					</systemProperties>
 				</configuration>
 			</plugin>
-			
 		</plugins>
 		<finalName>sysmex</finalName>
 		<resources>
