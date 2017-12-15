@@ -117,7 +117,7 @@ public class TaaediDeclarationMainPage implements java.io.Serializable {
 	private java.lang.String dealMode;
 	/**件数*/
     @Excel(name="件数")
-	private java.lang.String quantity;
+	private java.lang.Integer quantity;
 	/**集装箱号*/
     @Excel(name="集装箱号")
 	private java.lang.String containerNo;
@@ -637,7 +637,7 @@ public class TaaediDeclarationMainPage implements java.io.Serializable {
 	 *方法: 取得java.lang.String
 	 *@return: java.lang.String  件数
 	 */
-	public java.lang.String getQuantity(){
+	public java.lang.Integer getQuantity(){
 		return this.quantity;
 	}
 
@@ -645,7 +645,7 @@ public class TaaediDeclarationMainPage implements java.io.Serializable {
 	 *方法: 设置java.lang.String
 	 *@param: java.lang.String  件数
 	 */
-	public void setQuantity(java.lang.String quantity){
+	public void setQuantity(java.lang.Integer quantity){
 		this.quantity = quantity;
 	}
 	/**

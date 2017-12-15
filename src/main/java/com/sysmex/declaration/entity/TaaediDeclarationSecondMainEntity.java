@@ -19,16 +19,16 @@ import org.jeecgframework.poi.excel.annotation.Excel;
 
 /**   
  * @Title: Entity
- * @Description: 报关单主表
+ * @Description: 二次报关单主表
  * @author onlineGenerator
- * @date 2017-12-12 17:52:49
+ * @date 2017-12-14 22:51:16
  * @version V1.0   
  *
  */
 @Entity
-@Table(name = "taaedi_declaration_main", schema = "")
+@Table(name = "taaedi_declaration_second_main", schema = "")
 @SuppressWarnings("serial")
-public class TaaediDeclarationMainEntity implements java.io.Serializable {
+public class TaaediDeclarationSecondMainEntity implements java.io.Serializable {
 	/**主键*/
 	private java.lang.String id;
 	/**创建人名称*/
@@ -49,8 +49,8 @@ public class TaaediDeclarationMainEntity implements java.io.Serializable {
 	private java.lang.String sysCompanyCode;
 	/**流程状态*/
 	private java.lang.String bpmStatus;
-	/**报关发票号*/
-    @Excel(name="报关发票号",width=15)
+	/**报关单发票号*/
+    @Excel(name="报关单发票号",width=15)
 	private java.lang.String customsInvoiceNo;
 	/**海关单号*/
     @Excel(name="海关单号",width=15)
@@ -323,7 +323,7 @@ public class TaaediDeclarationMainEntity implements java.io.Serializable {
 	 *@return: java.lang.String  流程状态
 	 */
 	
-	@Column(name ="BPM_STATUS",nullable=true,length=50)
+	@Column(name ="BPM_STATUS",nullable=true,length=32)
 	public java.lang.String getBpmStatus(){
 		return this.bpmStatus;
 	}
@@ -338,7 +338,7 @@ public class TaaediDeclarationMainEntity implements java.io.Serializable {
 	
 	/**
 	 *方法: 取得java.lang.String
-	 *@return: java.lang.String  报关发票号
+	 *@return: java.lang.String  报关单发票号
 	 */
 	
 	@Column(name ="CUSTOMS_INVOICE_NO",nullable=true,length=50)
@@ -348,7 +348,7 @@ public class TaaediDeclarationMainEntity implements java.io.Serializable {
 
 	/**
 	 *方法: 设置java.lang.String
-	 *@param: java.lang.String  报关发票号
+	 *@param: java.lang.String  报关单发票号
 	 */
 	public void setCustomsInvoiceNo(java.lang.String customsInvoiceNo){
 		this.customsInvoiceNo = customsInvoiceNo;
@@ -733,8 +733,8 @@ public class TaaediDeclarationMainEntity implements java.io.Serializable {
 	}
 	
 	/**
-	 *方法: 取得java.lang.String
-	 *@return: java.lang.String  件数
+	 *方法: 取得java.lang.Integer
+	 *@return: java.lang.Integer  件数
 	 */
 	
 	@Column(name ="QUANTITY",nullable=true,length=10)
@@ -743,8 +743,8 @@ public class TaaediDeclarationMainEntity implements java.io.Serializable {
 	}
 
 	/**
-	 *方法: 设置java.lang.String
-	 *@param: java.lang.String  件数
+	 *方法: 设置java.lang.Integer
+	 *@param: java.lang.Integer  件数
 	 */
 	public void setQuantity(java.lang.Integer quantity){
 		this.quantity = quantity;

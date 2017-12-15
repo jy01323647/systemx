@@ -168,7 +168,7 @@
 			</td>
 
 			<td class="value">
-				<input id="shippingType" name="shippingType" type="text" style="width: 150px" class="inputxt"  ignore="ignore" value='${taaediDeclarationMainPage.impExpCorp}'/>
+				<input id="shippingType" name="shippingType" type="text" style="width: 150px" class="inputxt"  ignore="ignore" value='${taaediDeclarationMainPage.shippingType}'/>
 				<span class="Validform_checktip"></span>
 				<label class="Validform_label" style="display: none;">运输方式</label>
 			</td>

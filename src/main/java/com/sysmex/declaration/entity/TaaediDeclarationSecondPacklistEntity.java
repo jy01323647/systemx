@@ -19,16 +19,16 @@ import org.jeecgframework.poi.excel.annotation.Excel;
 
 /**   
  * @Title: Entity
- * @Description: 报关箱单明细
+ * @Description: 二次报关箱单明细
  * @author onlineGenerator
- * @date 2017-12-12 17:52:49
+ * @date 2017-12-14 22:51:15
  * @version V1.0   
  *
  */
 @Entity
-@Table(name = "taaedi_declaration_pack_detail", schema = "")
+@Table(name = "taaedi_declaration_second_packlist", schema = "")
 @SuppressWarnings("serial")
-public class TaaediDeclarationPackDetailEntity implements java.io.Serializable {
+public class TaaediDeclarationSecondPacklistEntity implements java.io.Serializable {
 	/**主键*/
 	private java.lang.String id;
 	/**创建人名称*/
@@ -49,9 +49,33 @@ public class TaaediDeclarationPackDetailEntity implements java.io.Serializable {
 	private java.lang.String sysCompanyCode;
 	/**流程状态*/
 	private java.lang.String bpmStatus;
-	/**报关发票号*/
-    @Excel(name="报关发票号",width=15)
+	/**报关主表ID*/
+    @Excel(name="报关主表ID",width=15)
+	private java.lang.String mainId;
+	/**销售订单号*/
+    @Excel(name="销售订单号",width=15)
+	private java.lang.String saleorderNo;
+	/**库存流水号*/
+    @Excel(name="库存流水号",width=15)
+	private java.lang.String inventoryNo;
+	/**二次报关发票号*/
+    @Excel(name="二次报关发票号",width=15)
 	private java.lang.String customsInvoiceNo;
+	/**二次报关数量*/
+    @Excel(name="二次报关数量",width=15)
+	private java.lang.Integer customsQuantity;
+	/**二次报关状态*/
+    @Excel(name="二次报关状态",width=15)
+	private java.lang.String customsStatus;
+	/**进境报关发票号*/
+    @Excel(name="进境报关发票号",width=15)
+	private java.lang.String entryInvoiceNo;
+	/**进境报关数量*/
+    @Excel(name="进境报关数量",width=15)
+	private java.lang.Integer entryQuantity;
+	/**进境报关状态*/
+    @Excel(name="进境报关状态",width=15)
+	private java.lang.String entryStatus;
 	/**运单号*/
     @Excel(name="运单号",width=15)
 	private java.lang.String waybillNo;
@@ -64,9 +88,6 @@ public class TaaediDeclarationPackDetailEntity implements java.io.Serializable {
 	/**装箱单号*/
     @Excel(name="装箱单号",width=15)
 	private java.lang.String packNo;
-	/**本次报关数量*/
-    @Excel(name="本次报关数量",width=15)
-	private java.lang.Integer customsQuantity;
 	/**箱单数量*/
     @Excel(name="箱单数量",width=15)
 	private java.lang.Integer packQuantity;
@@ -145,15 +166,9 @@ public class TaaediDeclarationPackDetailEntity implements java.io.Serializable {
 	/**贸易方式*/
     @Excel(name="贸易方式",width=15)
 	private java.lang.String tradeMode;
-	/**是否紧急标志*/
-    @Excel(name="是否紧急标志",width=15)
-	private java.lang.String urgentFlag;
-	/**附件标志*/
-    @Excel(name="附件标志",width=15)
-	private java.lang.Integer attachmentFlag;
 	/**预警提示*/
     @Excel(name="预警提示",width=15)
-	private java.lang.Integer remarkFlag;
+	private java.lang.String remarkFlag;
 	/**备注*/
     @Excel(name="备注",width=15)
 	private java.lang.String memo;
@@ -161,8 +176,6 @@ public class TaaediDeclarationPackDetailEntity implements java.io.Serializable {
 	private java.lang.Integer delflag;
 	/**删除时间*/
 	private java.util.Date delDate;
-	/**报关主表ID*/
-	private java.lang.String mainId;
 	
 	/**
 	 *方法: 取得java.lang.String
@@ -349,20 +362,164 @@ public class TaaediDeclarationPackDetailEntity implements java.io.Serializable {
 	
 	/**
 	 *方法: 取得java.lang.String
-	 *@return: java.lang.String  报关发票号
+	 *@return: java.lang.String  报关主表ID
 	 */
 	
-	@Column(name ="CUSTOMS_INVOICE_NO",nullable=true,length=32)
+	@Column(name ="MAIN_ID",nullable=true,length=36)
+	public java.lang.String getMainId(){
+		return this.mainId;
+	}
+
+	/**
+	 *方法: 设置java.lang.String
+	 *@param: java.lang.String  报关主表ID
+	 */
+	public void setMainId(java.lang.String mainId){
+		this.mainId = mainId;
+	}
+	
+	/**
+	 *方法: 取得java.lang.String
+	 *@return: java.lang.String  销售订单号
+	 */
+	
+	@Column(name ="SALEORDER_NO",nullable=true,length=50)
+	public java.lang.String getSaleorderNo(){
+		return this.saleorderNo;
+	}
+
+	/**
+	 *方法: 设置java.lang.String
+	 *@param: java.lang.String  销售订单号
+	 */
+	public void setSaleorderNo(java.lang.String saleorderNo){
+		this.saleorderNo = saleorderNo;
+	}
+	
+	/**
+	 *方法: 取得java.lang.String
+	 *@return: java.lang.String  库存流水号
+	 */
+	
+	@Column(name ="INVENTORY_NO",nullable=true,length=50)
+	public java.lang.String getInventoryNo(){
+		return this.inventoryNo;
+	}
+
+	/**
+	 *方法: 设置java.lang.String
+	 *@param: java.lang.String  库存流水号
+	 */
+	public void setInventoryNo(java.lang.String inventoryNo){
+		this.inventoryNo = inventoryNo;
+	}
+	
+	/**
+	 *方法: 取得java.lang.String
+	 *@return: java.lang.String  二次报关发票号
+	 */
+	
+	@Column(name ="CUSTOMS_INVOICE_NO",nullable=true,length=50)
 	public java.lang.String getCustomsInvoiceNo(){
 		return this.customsInvoiceNo;
 	}
 
 	/**
 	 *方法: 设置java.lang.String
-	 *@param: java.lang.String  报关发票号
+	 *@param: java.lang.String  二次报关发票号
 	 */
 	public void setCustomsInvoiceNo(java.lang.String customsInvoiceNo){
 		this.customsInvoiceNo = customsInvoiceNo;
+	}
+	
+	/**
+	 *方法: 取得java.lang.Integer
+	 *@return: java.lang.Integer  二次报关数量
+	 */
+	
+	@Column(name ="CUSTOMS_QUANTITY",nullable=true,length=10)
+	public java.lang.Integer getCustomsQuantity(){
+		return this.customsQuantity;
+	}
+
+	/**
+	 *方法: 设置java.lang.Integer
+	 *@param: java.lang.Integer  二次报关数量
+	 */
+	public void setCustomsQuantity(java.lang.Integer customsQuantity){
+		this.customsQuantity = customsQuantity;
+	}
+	
+	/**
+	 *方法: 取得java.lang.String
+	 *@return: java.lang.String  二次报关状态
+	 */
+	
+	@Column(name ="CUSTOMS_STATUS",nullable=true,length=50)
+	public java.lang.String getCustomsStatus(){
+		return this.customsStatus;
+	}
+
+	/**
+	 *方法: 设置java.lang.String
+	 *@param: java.lang.String  二次报关状态
+	 */
+	public void setCustomsStatus(java.lang.String customsStatus){
+		this.customsStatus = customsStatus;
+	}
+	
+	/**
+	 *方法: 取得java.lang.String
+	 *@return: java.lang.String  进境报关发票号
+	 */
+	
+	@Column(name ="ENTRY_INVOICE_NO",nullable=true,length=50)
+	public java.lang.String getEntryInvoiceNo(){
+		return this.entryInvoiceNo;
+	}
+
+	/**
+	 *方法: 设置java.lang.String
+	 *@param: java.lang.String  进境报关发票号
+	 */
+	public void setEntryInvoiceNo(java.lang.String entryInvoiceNo){
+		this.entryInvoiceNo = entryInvoiceNo;
+	}
+	
+	/**
+	 *方法: 取得java.lang.Integer
+	 *@return: java.lang.Integer  进境报关数量
+	 */
+	
+	@Column(name ="ENTRY_QUANTITY",nullable=true,length=10)
+	public java.lang.Integer getEntryQuantity(){
+		return this.entryQuantity;
+	}
+
+	/**
+	 *方法: 设置java.lang.Integer
+	 *@param: java.lang.Integer  进境报关数量
+	 */
+	public void setEntryQuantity(java.lang.Integer entryQuantity){
+		this.entryQuantity = entryQuantity;
+	}
+	
+	/**
+	 *方法: 取得java.lang.String
+	 *@return: java.lang.String  进境报关状态
+	 */
+	
+	@Column(name ="ENTRY_STATUS",nullable=true,length=50)
+	public java.lang.String getEntryStatus(){
+		return this.entryStatus;
+	}
+
+	/**
+	 *方法: 设置java.lang.String
+	 *@param: java.lang.String  进境报关状态
+	 */
+	public void setEntryStatus(java.lang.String entryStatus){
+		this.entryStatus = entryStatus;
 	}
 	
 	/**
@@ -435,24 +592,6 @@ public class TaaediDeclarationPackDetailEntity implements java.io.Serializable {
 	 */
 	public void setPackNo(java.lang.String packNo){
 		this.packNo = packNo;
-	}
-	
-	/**
-	 *方法: 取得java.lang.Integer
-	 *@return: java.lang.Integer  本次报关数量
-	 */
-	
-	@Column(name ="CUSTOMS_QUANTITY",nullable=true,length=10)
-	public java.lang.Integer getCustomsQuantity(){
-		return this.customsQuantity;
-	}
-
-	/**
-	 *方法: 设置java.lang.Integer
-	 *@param: java.lang.Integer  本次报关数量
-	 */
-	public void setCustomsQuantity(java.lang.Integer customsQuantity){
-		this.customsQuantity = customsQuantity;
 	}
 	
 	/**
@@ -694,7 +833,7 @@ public class TaaediDeclarationPackDetailEntity implements java.io.Serializable {
 	 *@return: java.lang.String  币种
 	 */
 	
-	@Column(name ="CURRENCY",nullable=true,length=10)
+	@Column(name ="CURRENCY",nullable=true,length=50)
 	public java.lang.String getCurrency(){
 		return this.currency;
 	}
@@ -766,7 +905,7 @@ public class TaaediDeclarationPackDetailEntity implements java.io.Serializable {
 	 *@return: java.lang.String  预计到货日期
 	 */
 	
-	@Column(name ="P_ARRIVAL_DATE",nullable=true,length=50)
+	@Column(name ="PLAN_ARRIVAL_DATE",nullable=true,length=50)
 	public java.lang.String getPlanArrivalDate(){
 		return this.planArrivalDate;
 	}
@@ -925,55 +1064,19 @@ public class TaaediDeclarationPackDetailEntity implements java.io.Serializable {
 	
 	/**
 	 *方法: 取得java.lang.String
-	 *@return: java.lang.String  是否紧急标志
+	 *@return: java.lang.String  预警提示
 	 */
 	
-	@Column(name ="URGENT_FLAG",nullable=true,length=50)
-	public java.lang.String getUrgentFlag(){
-		return this.urgentFlag;
-	}
-
-	/**
-	 *方法: 设置java.lang.String
-	 *@param: java.lang.String  是否紧急标志
-	 */
-	public void setUrgentFlag(java.lang.String urgentFlag){
-		this.urgentFlag = urgentFlag;
-	}
-	
-	/**
-	 *方法: 取得java.lang.Integer
-	 *@return: java.lang.Integer  附件标志
-	 */
-	
-	@Column(name ="ATTACHMENT_FLAG",nullable=true,length=3)
-	public java.lang.Integer getAttachmentFlag(){
-		return this.attachmentFlag;
-	}
-
-	/**
-	 *方法: 设置java.lang.Integer
-	 *@param: java.lang.Integer  附件标志
-	 */
-	public void setAttachmentFlag(java.lang.Integer attachmentFlag){
-		this.attachmentFlag = attachmentFlag;
-	}
-	
-	/**
-	 *方法: 取得java.lang.Integer
-	 *@return: java.lang.Integer  预警提示
-	 */
-	
-	@Column(name ="REMARK_FLAG",nullable=true,length=3)
-	public java.lang.Integer getRemarkFlag(){
+	@Column(name ="REMARK_FLAG",nullable=true,length=50)
+	public java.lang.String getRemarkFlag(){
 		return this.remarkFlag;
 	}
 
 	/**
-	 *方法: 设置java.lang.Integer
-	 *@param: java.lang.Integer  预警提示
+	 *方法: 设置java.lang.String
+	 *@param: java.lang.String  预警提示
 	 */
-	public void setRemarkFlag(java.lang.Integer remarkFlag){
+	public void setRemarkFlag(java.lang.String remarkFlag){
 		this.remarkFlag = remarkFlag;
 	}
 	
@@ -1029,24 +1132,6 @@ public class TaaediDeclarationPackDetailEntity implements java.io.Serializable {
 	 */
 	public void setDelDate(java.util.Date delDate){
 		this.delDate = delDate;
-	}
-	
-	/**
-	 *方法: 取得java.lang.String
-	 *@return: java.lang.String  报关主表ID
-	 */
-	
-	@Column(name ="MAIN_ID",nullable=true,length=36)
-	public java.lang.String getMainId(){
-		return this.mainId;
-	}
-
-	/**
-	 *方法: 设置java.lang.String
-	 *@param: java.lang.String  报关主表ID
-	 */
-	public void setMainId(java.lang.String mainId){
-		this.mainId = mainId;
 	}
 	
 }

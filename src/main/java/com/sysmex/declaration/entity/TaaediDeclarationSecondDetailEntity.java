@@ -19,16 +19,16 @@ import org.jeecgframework.poi.excel.annotation.Excel;
 
 /**   
  * @Title: Entity
- * @Description: 报关明细
+ * @Description: 二次报关明细
  * @author onlineGenerator
- * @date 2017-12-12 17:52:49
+ * @date 2017-12-14 22:51:15
  * @version V1.0   
  *
  */
 @Entity
-@Table(name = "taaedi_declaration_detail", schema = "")
+@Table(name = "taaedi_declaration_second_detail", schema = "")
 @SuppressWarnings("serial")
-public class TaaediDeclarationDetailEntity implements java.io.Serializable {
+public class TaaediDeclarationSecondDetailEntity implements java.io.Serializable {
 	/**主键*/
 	private java.lang.String id;
 	/**创建人名称*/
@@ -49,6 +49,9 @@ public class TaaediDeclarationDetailEntity implements java.io.Serializable {
 	private java.lang.String sysCompanyCode;
 	/**流程状态*/
 	private java.lang.String bpmStatus;
+	/**主表ID*/
+    @Excel(name="主表ID",width=15)
+	private java.lang.String mainId;
 	/**报关发票号*/
     @Excel(name="报关发票号",width=15)
 	private java.lang.String customsInvoiceNo;
@@ -66,25 +69,25 @@ public class TaaediDeclarationDetailEntity implements java.io.Serializable {
 	private java.lang.String currency;
 	/**本次报关数量*/
     @Excel(name="本次报关数量",width=15)
-	private java.lang.Integer customsQuantity;
+	private java.lang.String customsQuantity;
 	/**原始单价*/
     @Excel(name="原始单价",width=15)
 	private java.math.BigDecimal unitPriceOriginal;
 	/**基准单价*/
     @Excel(name="基准单价",width=15)
-	private java.math.BigDecimal unitPriceBase;
+	private java.lang.String unitPriceBase;
 	/**调整单价*/
     @Excel(name="调整单价",width=15)
-	private java.math.BigDecimal unitPriceUpdate;
+	private java.lang.String unitPriceUpdate;
 	/**运费分摊单价*/
     @Excel(name="运费分摊单价",width=15)
-	private java.math.BigDecimal unitPriceShippingfee;
+	private java.lang.String unitPriceShippingfee;
 	/**合计单价*/
     @Excel(name="合计单价",width=15)
-	private java.math.BigDecimal untiPriceTotal;
+	private java.lang.String untiPriceTotal;
 	/**报关金额*/
     @Excel(name="报关金额",width=15)
-	private java.math.BigDecimal customsAmount;
+	private java.lang.String customsAmount;
 	/**税择号*/
     @Excel(name="税择号",width=15)
 	private java.lang.String hscode;
@@ -111,25 +114,19 @@ public class TaaediDeclarationDetailEntity implements java.io.Serializable {
 	private java.lang.String units;
 	/**净重*/
     @Excel(name="净重",width=15)
-	private java.math.BigDecimal netWeight;
+	private java.lang.String netWeight;
 	/**毛重*/
     @Excel(name="毛重",width=15)
-	private java.math.BigDecimal grossWeight;
+	private java.lang.String grossWeight;
 	/**长宽高*/
     @Excel(name="长宽高",width=15)
 	private java.lang.String dimension;
 	/**体积*/
     @Excel(name="体积",width=15)
-	private java.math.BigDecimal volume;
-	/**是否紧急标志*/
-    @Excel(name="是否紧急标志",width=15)
-	private java.lang.String urgentFlag;
-	/**附件标志*/
-    @Excel(name="附件标志",width=15)
-	private java.lang.Integer attachmentFlag;
+	private java.lang.String volume;
 	/**预警提示*/
     @Excel(name="预警提示",width=15)
-	private java.lang.Integer remarkFlag;
+	private java.lang.String remarkFlag;
 	/**备注*/
     @Excel(name="备注",width=15)
 	private java.lang.String memo;
@@ -137,8 +134,6 @@ public class TaaediDeclarationDetailEntity implements java.io.Serializable {
 	private java.lang.Integer delflag;
 	/**删除时间*/
 	private java.util.Date delDate;
-	/**主表ID*/
-	private java.lang.String mainId;
 	
 	/**
 	 *方法: 取得java.lang.String
@@ -325,6 +320,24 @@ public class TaaediDeclarationDetailEntity implements java.io.Serializable {
 	
 	/**
 	 *方法: 取得java.lang.String
+	 *@return: java.lang.String  主表ID
+	 */
+	
+	@Column(name ="MAIN_ID",nullable=true,length=36)
+	public java.lang.String getMainId(){
+		return this.mainId;
+	}
+
+	/**
+	 *方法: 设置java.lang.String
+	 *@param: java.lang.String  主表ID
+	 */
+	public void setMainId(java.lang.String mainId){
+		this.mainId = mainId;
+	}
+	
+	/**
+	 *方法: 取得java.lang.String
 	 *@return: java.lang.String  报关发票号
 	 */
 	
@@ -400,7 +413,7 @@ public class TaaediDeclarationDetailEntity implements java.io.Serializable {
 	 *@return: java.lang.String  币种
 	 */
 	
-	@Column(name ="CURRENCY",nullable=true,length=50)
+	@Column(name ="CURRENCY",nullable=true,length=10)
 	public java.lang.String getCurrency(){
 		return this.currency;
 	}
@@ -414,20 +427,20 @@ public class TaaediDeclarationDetailEntity implements java.io.Serializable {
 	}
 	
 	/**
-	 *方法: 取得java.math.BigDecimal
-	 *@return: java.math.BigDecimal  本次报关数量
+	 *方法: 取得java.lang.String
+	 *@return: java.lang.String  本次报关数量
 	 */
 	
-	@Column(name ="CUSTOMS_QUANTITY",nullable=true,length=10)
-	public java.lang.Integer getCustomsQuantity(){
+	@Column(name ="CUSTOMS_QUANTITY",nullable=true,length=50)
+	public java.lang.String getCustomsQuantity(){
 		return this.customsQuantity;
 	}
 
 	/**
-	 *方法: 设置java.math.BigDecimal
-	 *@param: java.math.BigDecimal  本次报关数量
+	 *方法: 设置java.lang.String
+	 *@param: java.lang.String  本次报关数量
 	 */
-	public void setCustomsQuantity(java.lang.Integer customsQuantity){
+	public void setCustomsQuantity(java.lang.String customsQuantity){
 		this.customsQuantity = customsQuantity;
 	}
 	
@@ -450,92 +463,92 @@ public class TaaediDeclarationDetailEntity implements java.io.Serializable {
 	}
 	
 	/**
-	 *方法: 取得java.math.BigDecimal
-	 *@return: java.math.BigDecimal  基准单价
+	 *方法: 取得java.lang.String
+	 *@return: java.lang.String  基准单价
 	 */
 	
 	@Column(name ="UNIT_PRICE_BASE",nullable=true,scale=3,length=20)
-	public java.math.BigDecimal getUnitPriceBase(){
+	public java.lang.String getUnitPriceBase(){
 		return this.unitPriceBase;
 	}
 
 	/**
-	 *方法: 设置java.math.BigDecimal
-	 *@param: java.math.BigDecimal  基准单价
+	 *方法: 设置java.lang.String
+	 *@param: java.lang.String  基准单价
 	 */
-	public void setUnitPriceBase(java.math.BigDecimal unitPriceBase){
+	public void setUnitPriceBase(java.lang.String unitPriceBase){
 		this.unitPriceBase = unitPriceBase;
 	}
 	
 	/**
-	 *方法: 取得java.math.BigDecimal
-	 *@return: java.math.BigDecimal  调整单价
+	 *方法: 取得java.lang.String
+	 *@return: java.lang.String  调整单价
 	 */
 	
 	@Column(name ="UNIT_PRICE_UPDATE",nullable=true,scale=3,length=20)
-	public java.math.BigDecimal getUnitPriceUpdate(){
+	public java.lang.String getUnitPriceUpdate(){
 		return this.unitPriceUpdate;
 	}
 
 	/**
-	 *方法: 设置java.math.BigDecimal
-	 *@param: java.math.BigDecimal  调整单价
+	 *方法: 设置java.lang.String
+	 *@param: java.lang.String  调整单价
 	 */
-	public void setUnitPriceUpdate(java.math.BigDecimal unitPriceUpdate){
+	public void setUnitPriceUpdate(java.lang.String unitPriceUpdate){
 		this.unitPriceUpdate = unitPriceUpdate;
 	}
 	
 	/**
-	 *方法: 取得java.math.BigDecimal
-	 *@return: java.math.BigDecimal  运费分摊单价
+	 *方法: 取得java.lang.String
+	 *@return: java.lang.String  运费分摊单价
 	 */
 	
 	@Column(name ="UNIT_PRICE_SHIPPINGFEE",nullable=true,scale=3,length=20)
-	public java.math.BigDecimal getUnitPriceShippingfee(){
+	public java.lang.String getUnitPriceShippingfee(){
 		return this.unitPriceShippingfee;
 	}
 
 	/**
-	 *方法: 设置java.math.BigDecimal
-	 *@param: java.math.BigDecimal  运费分摊单价
+	 *方法: 设置java.lang.String
+	 *@param: java.lang.String  运费分摊单价
 	 */
-	public void setUnitPriceShippingfee(java.math.BigDecimal unitPriceShippingfee){
+	public void setUnitPriceShippingfee(java.lang.String unitPriceShippingfee){
 		this.unitPriceShippingfee = unitPriceShippingfee;
 	}
 	
 	/**
-	 *方法: 取得java.math.BigDecimal
-	 *@return: java.math.BigDecimal  合计单价
+	 *方法: 取得java.lang.String
+	 *@return: java.lang.String  合计单价
 	 */
 	
 	@Column(name ="UNTI_PRICE_TOTAL",nullable=true,scale=3,length=20)
-	public java.math.BigDecimal getUntiPriceTotal(){
+	public java.lang.String getUntiPriceTotal(){
 		return this.untiPriceTotal;
 	}
 
 	/**
-	 *方法: 设置java.math.BigDecimal
-	 *@param: java.math.BigDecimal  合计单价
+	 *方法: 设置java.lang.String
+	 *@param: java.lang.String  合计单价
 	 */
-	public void setUntiPriceTotal(java.math.BigDecimal untiPriceTotal){
+	public void setUntiPriceTotal(java.lang.String untiPriceTotal){
 		this.untiPriceTotal = untiPriceTotal;
 	}
 	
 	/**
-	 *方法: 取得java.math.BigDecimal
-	 *@return: java.math.BigDecimal  报关金额
+	 *方法: 取得java.lang.String
+	 *@return: java.lang.String  报关金额
 	 */
 	
 	@Column(name ="CUSTOMS_AMOUNT",nullable=true,scale=3,length=20)
-	public java.math.BigDecimal getCustomsAmount(){
+	public java.lang.String getCustomsAmount(){
 		return this.customsAmount;
 	}
 
 	/**
-	 *方法: 设置java.math.BigDecimal
-	 *@param: java.math.BigDecimal  报关金额
+	 *方法: 设置java.lang.String
+	 *@param: java.lang.String  报关金额
 	 */
-	public void setCustomsAmount(java.math.BigDecimal customsAmount){
+	public void setCustomsAmount(java.lang.String customsAmount){
 		this.customsAmount = customsAmount;
 	}
 	
@@ -670,7 +683,7 @@ public class TaaediDeclarationDetailEntity implements java.io.Serializable {
 	 *@return: java.lang.String  单位
 	 */
 	
-	@Column(name ="UNITS",nullable=true,scale=2,length=20)
+	@Column(name ="UNITS",nullable=true,length=50)
 	public java.lang.String getUnits(){
 		return this.units;
 	}
@@ -684,38 +697,38 @@ public class TaaediDeclarationDetailEntity implements java.io.Serializable {
 	}
 	
 	/**
-	 *方法: 取得java.math.BigDecimal
-	 *@return: java.math.BigDecimal  净重
+	 *方法: 取得java.lang.String
+	 *@return: java.lang.String  净重
 	 */
 	
-	@Column(name ="NET_WEIGHT",nullable=true,scale=2,length=20)
-	public java.math.BigDecimal getNetWeight(){
+	@Column(name ="NET_WEIGHT",nullable=true,length=50)
+	public java.lang.String getNetWeight(){
 		return this.netWeight;
 	}
 
 	/**
-	 *方法: 设置java.math.BigDecimal
-	 *@param: java.math.BigDecimal  净重
+	 *方法: 设置java.lang.String
+	 *@param: java.lang.String  净重
 	 */
-	public void setNetWeight(java.math.BigDecimal netWeight){
+	public void setNetWeight(java.lang.String netWeight){
 		this.netWeight = netWeight;
 	}
 	
 	/**
-	 *方法: 取得java.math.BigDecimal
-	 *@return: java.math.BigDecimal  毛重
+	 *方法: 取得java.lang.String
+	 *@return: java.lang.String  毛重
 	 */
 	
-	@Column(name ="GROSS_WEIGHT",nullable=true,scale=2,length=20)
-	public java.math.BigDecimal getGrossWeight(){
+	@Column(name ="GROSS_WEIGHT",nullable=true,length=50)
+	public java.lang.String getGrossWeight(){
 		return this.grossWeight;
 	}
 
 	/**
-	 *方法: 设置java.math.BigDecimal
-	 *@param: java.math.BigDecimal  毛重
+	 *方法: 设置java.lang.String
+	 *@param: java.lang.String  毛重
 	 */
-	public void setGrossWeight(java.math.BigDecimal grossWeight){
+	public void setGrossWeight(java.lang.String grossWeight){
 		this.grossWeight = grossWeight;
 	}
 	
@@ -738,74 +751,38 @@ public class TaaediDeclarationDetailEntity implements java.io.Serializable {
 	}
 	
 	/**
-	 *方法: 取得java.math.BigDecimal
-	 *@return: java.math.BigDecimal  体积
+	 *方法: 取得java.lang.String
+	 *@return: java.lang.String  体积
 	 */
 	
-	@Column(name ="VOLUME",nullable=true,scale=2,length=20)
-	public java.math.BigDecimal getVolume(){
+	@Column(name ="VOLUME",nullable=true,length=50)
+	public java.lang.String getVolume(){
 		return this.volume;
 	}
 
 	/**
-	 *方法: 设置java.math.BigDecimal
-	 *@param: java.math.BigDecimal  体积
+	 *方法: 设置java.lang.String
+	 *@param: java.lang.String  体积
 	 */
-	public void setVolume(java.math.BigDecimal volume){
+	public void setVolume(java.lang.String volume){
 		this.volume = volume;
 	}
 	
 	/**
 	 *方法: 取得java.lang.String
-	 *@return: java.lang.String  是否紧急标志
+	 *@return: java.lang.String  预警提示
 	 */
 	
-	@Column(name ="URGENT_FLAG",nullable=true,length=50)
-	public java.lang.String getUrgentFlag(){
-		return this.urgentFlag;
-	}
-
-	/**
-	 *方法: 设置java.lang.String
-	 *@param: java.lang.String  是否紧急标志
-	 */
-	public void setUrgentFlag(java.lang.String urgentFlag){
-		this.urgentFlag = urgentFlag;
-	}
-	
-	/**
-	 *方法: 取得java.lang.Integer
-	 *@return: java.lang.Integer  附件标志
-	 */
-	
-	@Column(name ="ATTACHMENT_FLAG",nullable=true,length=3)
-	public java.lang.Integer getAttachmentFlag(){
-		return this.attachmentFlag;
-	}
-
-	/**
-	 *方法: 设置java.lang.Integer
-	 *@param: java.lang.Integer  附件标志
-	 */
-	public void setAttachmentFlag(java.lang.Integer attachmentFlag){
-		this.attachmentFlag = attachmentFlag;
-	}
-	
-	/**
-	 *方法: 取得java.lang.Integer
-	 *@return: java.lang.Integer  预警提示
-	 */
-	
-	@Column(name ="REMARK_FLAG",nullable=true,length=3)
-	public java.lang.Integer getRemarkFlag(){
+	@Column(name ="REMARK_FLAG",nullable=true,length=50)
+	public java.lang.String getRemarkFlag(){
 		return this.remarkFlag;
 	}
 
 	/**
-	 *方法: 设置java.lang.Integer
-	 *@param: java.lang.Integer  预警提示
+	 *方法: 设置java.lang.String
+	 *@param: java.lang.String  预警提示
 	 */
-	public void setRemarkFlag(java.lang.Integer remarkFlag){
+	public void setRemarkFlag(java.lang.String remarkFlag){
 		this.remarkFlag = remarkFlag;
 	}
 	
@@ -814,7 +791,7 @@ public class TaaediDeclarationDetailEntity implements java.io.Serializable {
 	 *@return: java.lang.String  备注
 	 */
 	
-	@Column(name ="MEMO",nullable=true,length=500)
+	@Column(name ="MEMO",nullable=true,length=50)
 	public java.lang.String getMemo(){
 		return this.memo;
 	}
@@ -861,24 +838,6 @@ public class TaaediDeclarationDetailEntity implements java.io.Serializable {
 	 */
 	public void setDelDate(java.util.Date delDate){
 		this.delDate = delDate;
-	}
-	
-	/**
-	 *方法: 取得java.lang.String
-	 *@return: java.lang.String  主表ID
-	 */
-	
-	@Column(name ="MAIN_ID",nullable=true,length=36)
-	public java.lang.String getMainId(){
-		return this.mainId;
-	}
-
-	/**
-	 *方法: 设置java.lang.String
-	 *@param: java.lang.String  主表ID
-	 */
-	public void setMainId(java.lang.String mainId){
-		this.mainId = mainId;
 	}
 	
 }

@@ -1,12 +1,14 @@
-package com.sysmex.declaration.entity;
+
+package com.sysmex.declaration.page;
+import com.sysmex.declaration.entity.TaaediDeclarationSecondMainEntity;
+import com.sysmex.declaration.entity.TaaediDeclarationSecondPacklistEntity;
+import com.sysmex.declaration.entity.TaaediDeclarationSecondDetailEntity;
+
 import java.math.BigDecimal;
 import java.util.Date;
-import java.lang.String;
-import java.lang.Double;
-import java.lang.Integer;
-import java.math.BigDecimal;
-import javax.xml.soap.Text;
-import java.sql.Blob;
+import java.util.List;
+import java.util.ArrayList;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -16,19 +18,17 @@ import javax.persistence.Table;
 import org.hibernate.annotations.GenericGenerator;
 import javax.persistence.SequenceGenerator;
 import org.jeecgframework.poi.excel.annotation.Excel;
+import org.jeecgframework.poi.excel.annotation.ExcelCollection;
 
 /**   
  * @Title: Entity
- * @Description: 报关单主表
+ * @Description: 二次报关单主表
  * @author onlineGenerator
- * @date 2017-12-12 17:52:49
+ * @date 2017-12-14 22:51:16
  * @version V1.0   
  *
  */
-@Entity
-@Table(name = "taaedi_declaration_main", schema = "")
-@SuppressWarnings("serial")
-public class TaaediDeclarationMainEntity implements java.io.Serializable {
+public class TaaediDeclarationSecondMainPage implements java.io.Serializable {
 	/**主键*/
 	private java.lang.String id;
 	/**创建人名称*/
@@ -49,104 +49,104 @@ public class TaaediDeclarationMainEntity implements java.io.Serializable {
 	private java.lang.String sysCompanyCode;
 	/**流程状态*/
 	private java.lang.String bpmStatus;
-	/**报关发票号*/
-    @Excel(name="报关发票号",width=15)
+	/**报关单发票号*/
+    @Excel(name="报关单发票号")
 	private java.lang.String customsInvoiceNo;
 	/**海关单号*/
-    @Excel(name="海关单号",width=15)
+    @Excel(name="海关单号")
 	private java.lang.String customsNo;
 	/**提交申请日期*/
-    @Excel(name="提交申请日期",width=15)
+    @Excel(name="提交申请日期")
 	private java.lang.String applicationDate;
 	/**贸易方式*/
-    @Excel(name="贸易方式",width=15)
+    @Excel(name="贸易方式")
 	private java.lang.String tradeMode;
 	/**报关行*/
-    @Excel(name="报关行",width=15)
+    @Excel(name="报关行")
 	private java.lang.String customsBroker;
 	/**报关总金额*/
-    @Excel(name="报关总金额",width=15)
+    @Excel(name="报关总金额")
 	private java.math.BigDecimal totalAmount;
 	/**备案号*/
-    @Excel(name="备案号",width=15)
+    @Excel(name="备案号")
 	private java.lang.String customsRecordno;
 	/**进出口公司*/
-    @Excel(name="进出口公司",width=15)
+    @Excel(name="进出口公司")
 	private java.lang.String impExpCorp;
 	/**运输方式*/
-    @Excel(name="运输方式",width=15)
+    @Excel(name="运输方式")
 	private java.lang.String shippingType;
 	/**运输工具名称*/
-    @Excel(name="运输工具名称",width=15)
+    @Excel(name="运输工具名称")
 	private java.lang.String conveyance;
 	/**运单号*/
-    @Excel(name="运单号",width=15)
+    @Excel(name="运单号")
 	private java.lang.String waybillNo;
 	/**收货单位*/
-    @Excel(name="收货单位",width=15)
+    @Excel(name="收货单位")
 	private java.lang.String consignee;
 	/**报关合同号*/
-    @Excel(name="报关合同号",width=15)
+    @Excel(name="报关合同号")
 	private java.lang.String contractNo;
 	/**征免性质*/
-    @Excel(name="征免性质",width=15)
+    @Excel(name="征免性质")
 	private java.lang.String freeFlag;
 	/**征税比例*/
-    @Excel(name="征税比例",width=15)
+    @Excel(name="征税比例")
 	private java.lang.String taxRate;
 	/**许可证号*/
-    @Excel(name="许可证号",width=15)
+    @Excel(name="许可证号")
 	private java.lang.String licenceNo;
 	/**启运国*/
-    @Excel(name="启运国",width=15)
+    @Excel(name="启运国")
 	private java.lang.String countryOfOrigin;
 	/**装货港*/
-    @Excel(name="装货港",width=15)
+    @Excel(name="装货港")
 	private java.lang.String loadingPort;
 	/**进口口岸*/
-    @Excel(name="进口口岸",width=15)
+    @Excel(name="进口口岸")
 	private java.lang.String importPort;
 	/**境内目的地*/
-    @Excel(name="境内目的地",width=15)
+    @Excel(name="境内目的地")
 	private java.lang.String inlandDestination;
 	/**批准文号*/
-    @Excel(name="批准文号",width=15)
+    @Excel(name="批准文号")
 	private java.lang.String approvalNumber;
 	/**成交方式*/
-    @Excel(name="成交方式",width=15)
+    @Excel(name="成交方式")
 	private java.lang.String dealMode;
 	/**件数*/
-    @Excel(name="件数",width=15)
+    @Excel(name="件数")
 	private java.lang.Integer quantity;
 	/**集装箱号*/
-    @Excel(name="集装箱号",width=15)
+    @Excel(name="集装箱号")
 	private java.lang.String containerNo;
 	/**用途*/
-    @Excel(name="用途",width=15)
+    @Excel(name="用途")
 	private java.lang.String purpose;
 	/**报关状态*/
-    @Excel(name="报关状态",width=15)
+    @Excel(name="报关状态")
 	private java.lang.String status;
 	/**报关单*/
-    @Excel(name="报关单",width=15)
+    @Excel(name="报关单")
 	private java.lang.String customsBill;
 	/**税单*/
-    @Excel(name="税单",width=15)
+    @Excel(name="税单")
 	private java.lang.String taxBill;
 	/**进岸清单*/
-    @Excel(name="进岸清单",width=15)
+    @Excel(name="进岸清单")
 	private java.lang.String impList;
 	/**是否紧急标志*/
-    @Excel(name="是否紧急标志",width=15)
+    @Excel(name="是否紧急标志")
 	private java.lang.String urgentFlag;
 	/**附件标志*/
-    @Excel(name="附件标志",width=15)
+    @Excel(name="附件标志")
 	private java.lang.Integer attachmentFlag;
 	/**预警提示*/
-    @Excel(name="预警提示",width=15)
+    @Excel(name="预警提示")
 	private java.lang.Integer remarkFlag;
 	/**备注*/
-    @Excel(name="备注",width=15)
+    @Excel(name="备注")
 	private java.lang.String memo;
 	/**删除标记*/
 	private java.lang.Integer delflag;
@@ -157,11 +157,6 @@ public class TaaediDeclarationMainEntity implements java.io.Serializable {
 	 *方法: 取得java.lang.String
 	 *@return: java.lang.String  主键
 	 */
-	@Id
-	@GeneratedValue(generator = "paymentableGenerator")
-	@GenericGenerator(name = "paymentableGenerator", strategy = "uuid")
-	
-	@Column(name ="ID",nullable=false,length=36)
 	public java.lang.String getId(){
 		return this.id;
 	}
@@ -173,13 +168,10 @@ public class TaaediDeclarationMainEntity implements java.io.Serializable {
 	public void setId(java.lang.String id){
 		this.id = id;
 	}
-	
 	/**
 	 *方法: 取得java.lang.String
 	 *@return: java.lang.String  创建人名称
 	 */
-	
-	@Column(name ="CREATE_NAME",nullable=true,length=50)
 	public java.lang.String getCreateName(){
 		return this.createName;
 	}
@@ -191,13 +183,10 @@ public class TaaediDeclarationMainEntity implements java.io.Serializable {
 	public void setCreateName(java.lang.String createName){
 		this.createName = createName;
 	}
-	
 	/**
 	 *方法: 取得java.lang.String
 	 *@return: java.lang.String  创建人登录名称
 	 */
-	
-	@Column(name ="CREATE_BY",nullable=true,length=50)
 	public java.lang.String getCreateBy(){
 		return this.createBy;
 	}
@@ -209,13 +198,10 @@ public class TaaediDeclarationMainEntity implements java.io.Serializable {
 	public void setCreateBy(java.lang.String createBy){
 		this.createBy = createBy;
 	}
-	
 	/**
 	 *方法: 取得java.util.Date
 	 *@return: java.util.Date  创建日期
 	 */
-	
-	@Column(name ="CREATE_DATE",nullable=true,length=20)
 	public java.util.Date getCreateDate(){
 		return this.createDate;
 	}
@@ -227,13 +213,10 @@ public class TaaediDeclarationMainEntity implements java.io.Serializable {
 	public void setCreateDate(java.util.Date createDate){
 		this.createDate = createDate;
 	}
-	
 	/**
 	 *方法: 取得java.lang.String
 	 *@return: java.lang.String  更新人名称
 	 */
-	
-	@Column(name ="UPDATE_NAME",nullable=true,length=50)
 	public java.lang.String getUpdateName(){
 		return this.updateName;
 	}
@@ -245,13 +228,10 @@ public class TaaediDeclarationMainEntity implements java.io.Serializable {
 	public void setUpdateName(java.lang.String updateName){
 		this.updateName = updateName;
 	}
-	
 	/**
 	 *方法: 取得java.lang.String
 	 *@return: java.lang.String  更新人登录名称
 	 */
-	
-	@Column(name ="UPDATE_BY",nullable=true,length=50)
 	public java.lang.String getUpdateBy(){
 		return this.updateBy;
 	}
@@ -263,13 +243,10 @@ public class TaaediDeclarationMainEntity implements java.io.Serializable {
 	public void setUpdateBy(java.lang.String updateBy){
 		this.updateBy = updateBy;
 	}
-	
 	/**
 	 *方法: 取得java.util.Date
 	 *@return: java.util.Date  更新日期
 	 */
-	
-	@Column(name ="UPDATE_DATE",nullable=true,length=20)
 	public java.util.Date getUpdateDate(){
 		return this.updateDate;
 	}
@@ -281,13 +258,10 @@ public class TaaediDeclarationMainEntity implements java.io.Serializable {
 	public void setUpdateDate(java.util.Date updateDate){
 		this.updateDate = updateDate;
 	}
-	
 	/**
 	 *方法: 取得java.lang.String
 	 *@return: java.lang.String  所属部门
 	 */
-	
-	@Column(name ="SYS_ORG_CODE",nullable=true,length=50)
 	public java.lang.String getSysOrgCode(){
 		return this.sysOrgCode;
 	}
@@ -299,13 +273,10 @@ public class TaaediDeclarationMainEntity implements java.io.Serializable {
 	public void setSysOrgCode(java.lang.String sysOrgCode){
 		this.sysOrgCode = sysOrgCode;
 	}
-	
 	/**
 	 *方法: 取得java.lang.String
 	 *@return: java.lang.String  所属公司
 	 */
-	
-	@Column(name ="SYS_COMPANY_CODE",nullable=true,length=50)
 	public java.lang.String getSysCompanyCode(){
 		return this.sysCompanyCode;
 	}
@@ -317,13 +288,10 @@ public class TaaediDeclarationMainEntity implements java.io.Serializable {
 	public void setSysCompanyCode(java.lang.String sysCompanyCode){
 		this.sysCompanyCode = sysCompanyCode;
 	}
-	
 	/**
 	 *方法: 取得java.lang.String
 	 *@return: java.lang.String  流程状态
 	 */
-	
-	@Column(name ="BPM_STATUS",nullable=true,length=50)
 	public java.lang.String getBpmStatus(){
 		return this.bpmStatus;
 	}
@@ -335,31 +303,25 @@ public class TaaediDeclarationMainEntity implements java.io.Serializable {
 	public void setBpmStatus(java.lang.String bpmStatus){
 		this.bpmStatus = bpmStatus;
 	}
-	
 	/**
 	 *方法: 取得java.lang.String
-	 *@return: java.lang.String  报关发票号
+	 *@return: java.lang.String  报关单发票号
 	 */
-	
-	@Column(name ="CUSTOMS_INVOICE_NO",nullable=true,length=50)
 	public java.lang.String getCustomsInvoiceNo(){
 		return this.customsInvoiceNo;
 	}
 
 	/**
 	 *方法: 设置java.lang.String
-	 *@param: java.lang.String  报关发票号
+	 *@param: java.lang.String  报关单发票号
 	 */
 	public void setCustomsInvoiceNo(java.lang.String customsInvoiceNo){
 		this.customsInvoiceNo = customsInvoiceNo;
 	}
-	
 	/**
 	 *方法: 取得java.lang.String
 	 *@return: java.lang.String  海关单号
 	 */
-	
-	@Column(name ="CUSTOMS_NO",nullable=true,length=50)
 	public java.lang.String getCustomsNo(){
 		return this.customsNo;
 	}
@@ -371,13 +333,10 @@ public class TaaediDeclarationMainEntity implements java.io.Serializable {
 	public void setCustomsNo(java.lang.String customsNo){
 		this.customsNo = customsNo;
 	}
-	
 	/**
 	 *方法: 取得java.lang.String
 	 *@return: java.lang.String  提交申请日期
 	 */
-	
-	@Column(name ="APPLICATION_DATE",nullable=true,length=50)
 	public java.lang.String getApplicationDate(){
 		return this.applicationDate;
 	}
@@ -389,13 +348,10 @@ public class TaaediDeclarationMainEntity implements java.io.Serializable {
 	public void setApplicationDate(java.lang.String applicationDate){
 		this.applicationDate = applicationDate;
 	}
-	
 	/**
 	 *方法: 取得java.lang.String
 	 *@return: java.lang.String  贸易方式
 	 */
-	
-	@Column(name ="TRADE_MODE",nullable=true,length=50)
 	public java.lang.String getTradeMode(){
 		return this.tradeMode;
 	}
@@ -407,13 +363,10 @@ public class TaaediDeclarationMainEntity implements java.io.Serializable {
 	public void setTradeMode(java.lang.String tradeMode){
 		this.tradeMode = tradeMode;
 	}
-	
 	/**
 	 *方法: 取得java.lang.String
 	 *@return: java.lang.String  报关行
 	 */
-	
-	@Column(name ="CUSTOMS_BROKER",nullable=true,length=50)
 	public java.lang.String getCustomsBroker(){
 		return this.customsBroker;
 	}
@@ -425,13 +378,10 @@ public class TaaediDeclarationMainEntity implements java.io.Serializable {
 	public void setCustomsBroker(java.lang.String customsBroker){
 		this.customsBroker = customsBroker;
 	}
-	
 	/**
 	 *方法: 取得java.math.BigDecimal
 	 *@return: java.math.BigDecimal  报关总金额
 	 */
-	
-	@Column(name ="TOTAL_AMOUNT",nullable=true,scale=3,length=20)
 	public java.math.BigDecimal getTotalAmount(){
 		return this.totalAmount;
 	}
@@ -443,13 +393,10 @@ public class TaaediDeclarationMainEntity implements java.io.Serializable {
 	public void setTotalAmount(java.math.BigDecimal totalAmount){
 		this.totalAmount = totalAmount;
 	}
-	
 	/**
 	 *方法: 取得java.lang.String
 	 *@return: java.lang.String  备案号
 	 */
-	
-	@Column(name ="CUSTOMS_RECORDNO",nullable=true,length=50)
 	public java.lang.String getCustomsRecordno(){
 		return this.customsRecordno;
 	}
@@ -461,13 +408,10 @@ public class TaaediDeclarationMainEntity implements java.io.Serializable {
 	public void setCustomsRecordno(java.lang.String customsRecordno){
 		this.customsRecordno = customsRecordno;
 	}
-	
 	/**
 	 *方法: 取得java.lang.String
 	 *@return: java.lang.String  进出口公司
 	 */
-	
-	@Column(name ="IMP_EXP_CORP",nullable=true,length=50)
 	public java.lang.String getImpExpCorp(){
 		return this.impExpCorp;
 	}
@@ -479,13 +423,10 @@ public class TaaediDeclarationMainEntity implements java.io.Serializable {
 	public void setImpExpCorp(java.lang.String impExpCorp){
 		this.impExpCorp = impExpCorp;
 	}
-	
 	/**
 	 *方法: 取得java.lang.String
 	 *@return: java.lang.String  运输方式
 	 */
-	
-	@Column(name ="SHIPPING_TYPE",nullable=true,length=50)
 	public java.lang.String getShippingType(){
 		return this.shippingType;
 	}
@@ -497,13 +438,10 @@ public class TaaediDeclarationMainEntity implements java.io.Serializable {
 	public void setShippingType(java.lang.String shippingType){
 		this.shippingType = shippingType;
 	}
-	
 	/**
 	 *方法: 取得java.lang.String
 	 *@return: java.lang.String  运输工具名称
 	 */
-	
-	@Column(name ="CONVEYANCE",nullable=true,length=50)
 	public java.lang.String getConveyance(){
 		return this.conveyance;
 	}
@@ -515,13 +453,10 @@ public class TaaediDeclarationMainEntity implements java.io.Serializable {
 	public void setConveyance(java.lang.String conveyance){
 		this.conveyance = conveyance;
 	}
-	
 	/**
 	 *方法: 取得java.lang.String
 	 *@return: java.lang.String  运单号
 	 */
-	
-	@Column(name ="WAYBILL_NO",nullable=true,length=50)
 	public java.lang.String getWaybillNo(){
 		return this.waybillNo;
 	}
@@ -533,13 +468,10 @@ public class TaaediDeclarationMainEntity implements java.io.Serializable {
 	public void setWaybillNo(java.lang.String waybillNo){
 		this.waybillNo = waybillNo;
 	}
-	
 	/**
 	 *方法: 取得java.lang.String
 	 *@return: java.lang.String  收货单位
 	 */
-	
-	@Column(name ="CONSIGNEE",nullable=true,length=50)
 	public java.lang.String getConsignee(){
 		return this.consignee;
 	}
@@ -551,13 +483,10 @@ public class TaaediDeclarationMainEntity implements java.io.Serializable {
 	public void setConsignee(java.lang.String consignee){
 		this.consignee = consignee;
 	}
-	
 	/**
 	 *方法: 取得java.lang.String
 	 *@return: java.lang.String  报关合同号
 	 */
-	
-	@Column(name ="CONTRACT_NO",nullable=true,length=50)
 	public java.lang.String getContractNo(){
 		return this.contractNo;
 	}
@@ -569,13 +498,10 @@ public class TaaediDeclarationMainEntity implements java.io.Serializable {
 	public void setContractNo(java.lang.String contractNo){
 		this.contractNo = contractNo;
 	}
-	
 	/**
 	 *方法: 取得java.lang.String
 	 *@return: java.lang.String  征免性质
 	 */
-	
-	@Column(name ="FREE_FLAG",nullable=true,length=50)
 	public java.lang.String getFreeFlag(){
 		return this.freeFlag;
 	}
@@ -587,13 +513,10 @@ public class TaaediDeclarationMainEntity implements java.io.Serializable {
 	public void setFreeFlag(java.lang.String freeFlag){
 		this.freeFlag = freeFlag;
 	}
-	
 	/**
 	 *方法: 取得java.lang.String
 	 *@return: java.lang.String  征税比例
 	 */
-	
-	@Column(name ="TAX_RATE",nullable=true,length=50)
 	public java.lang.String getTaxRate(){
 		return this.taxRate;
 	}
@@ -605,13 +528,10 @@ public class TaaediDeclarationMainEntity implements java.io.Serializable {
 	public void setTaxRate(java.lang.String taxRate){
 		this.taxRate = taxRate;
 	}
-	
 	/**
 	 *方法: 取得java.lang.String
 	 *@return: java.lang.String  许可证号
 	 */
-	
-	@Column(name ="LICENCE_NO",nullable=true,length=50)
 	public java.lang.String getLicenceNo(){
 		return this.licenceNo;
 	}
@@ -623,13 +543,10 @@ public class TaaediDeclarationMainEntity implements java.io.Serializable {
 	public void setLicenceNo(java.lang.String licenceNo){
 		this.licenceNo = licenceNo;
 	}
-	
 	/**
 	 *方法: 取得java.lang.String
 	 *@return: java.lang.String  启运国
 	 */
-	
-	@Column(name ="COUNTRY_OF_ORIGIN",nullable=true,length=50)
 	public java.lang.String getCountryOfOrigin(){
 		return this.countryOfOrigin;
 	}
@@ -641,13 +558,10 @@ public class TaaediDeclarationMainEntity implements java.io.Serializable {
 	public void setCountryOfOrigin(java.lang.String countryOfOrigin){
 		this.countryOfOrigin = countryOfOrigin;
 	}
-	
 	/**
 	 *方法: 取得java.lang.String
 	 *@return: java.lang.String  装货港
 	 */
-	
-	@Column(name ="LOADING_PORT",nullable=true,length=50)
 	public java.lang.String getLoadingPort(){
 		return this.loadingPort;
 	}
@@ -659,13 +573,10 @@ public class TaaediDeclarationMainEntity implements java.io.Serializable {
 	public void setLoadingPort(java.lang.String loadingPort){
 		this.loadingPort = loadingPort;
 	}
-	
 	/**
 	 *方法: 取得java.lang.String
 	 *@return: java.lang.String  进口口岸
 	 */
-	
-	@Column(name ="IMPORT_PORT",nullable=true,length=50)
 	public java.lang.String getImportPort(){
 		return this.importPort;
 	}
@@ -677,13 +588,10 @@ public class TaaediDeclarationMainEntity implements java.io.Serializable {
 	public void setImportPort(java.lang.String importPort){
 		this.importPort = importPort;
 	}
-	
 	/**
 	 *方法: 取得java.lang.String
 	 *@return: java.lang.String  境内目的地
 	 */
-	
-	@Column(name ="INLAND_DESTINATION",nullable=true,length=50)
 	public java.lang.String getInlandDestination(){
 		return this.inlandDestination;
 	}
@@ -695,13 +603,10 @@ public class TaaediDeclarationMainEntity implements java.io.Serializable {
 	public void setInlandDestination(java.lang.String inlandDestination){
 		this.inlandDestination = inlandDestination;
 	}
-	
 	/**
 	 *方法: 取得java.lang.String
 	 *@return: java.lang.String  批准文号
 	 */
-	
-	@Column(name ="APPROVAL_NUMBER",nullable=true,length=50)
 	public java.lang.String getApprovalNumber(){
 		return this.approvalNumber;
 	}
@@ -713,13 +618,10 @@ public class TaaediDeclarationMainEntity implements java.io.Serializable {
 	public void setApprovalNumber(java.lang.String approvalNumber){
 		this.approvalNumber = approvalNumber;
 	}
-	
 	/**
 	 *方法: 取得java.lang.String
 	 *@return: java.lang.String  成交方式
 	 */
-	
-	@Column(name ="DEAL_MODE",nullable=true,length=50)
 	public java.lang.String getDealMode(){
 		return this.dealMode;
 	}
@@ -731,31 +633,25 @@ public class TaaediDeclarationMainEntity implements java.io.Serializable {
 	public void setDealMode(java.lang.String dealMode){
 		this.dealMode = dealMode;
 	}
-	
 	/**
-	 *方法: 取得java.lang.String
-	 *@return: java.lang.String  件数
+	 *方法: 取得java.lang.Integer
+	 *@return: java.lang.Integer  件数
 	 */
-	
-	@Column(name ="QUANTITY",nullable=true,length=10)
 	public java.lang.Integer getQuantity(){
 		return this.quantity;
 	}
 
 	/**
-	 *方法: 设置java.lang.String
-	 *@param: java.lang.String  件数
+	 *方法: 设置java.lang.Integer
+	 *@param: java.lang.Integer  件数
 	 */
 	public void setQuantity(java.lang.Integer quantity){
 		this.quantity = quantity;
 	}
-	
 	/**
 	 *方法: 取得java.lang.String
 	 *@return: java.lang.String  集装箱号
 	 */
-	
-	@Column(name ="CONTAINER_NO",nullable=true,length=50)
 	public java.lang.String getContainerNo(){
 		return this.containerNo;
 	}
@@ -767,13 +663,10 @@ public class TaaediDeclarationMainEntity implements java.io.Serializable {
 	public void setContainerNo(java.lang.String containerNo){
 		this.containerNo = containerNo;
 	}
-	
 	/**
 	 *方法: 取得java.lang.String
 	 *@return: java.lang.String  用途
 	 */
-	
-	@Column(name ="PURPOSE",nullable=true,length=50)
 	public java.lang.String getPurpose(){
 		return this.purpose;
 	}
@@ -785,13 +678,10 @@ public class TaaediDeclarationMainEntity implements java.io.Serializable {
 	public void setPurpose(java.lang.String purpose){
 		this.purpose = purpose;
 	}
-	
 	/**
 	 *方法: 取得java.lang.String
 	 *@return: java.lang.String  报关状态
 	 */
-	
-	@Column(name ="STATUS",nullable=true,length=50)
 	public java.lang.String getStatus(){
 		return this.status;
 	}
@@ -803,13 +693,10 @@ public class TaaediDeclarationMainEntity implements java.io.Serializable {
 	public void setStatus(java.lang.String status){
 		this.status = status;
 	}
-	
 	/**
 	 *方法: 取得java.lang.String
 	 *@return: java.lang.String  报关单
 	 */
-	
-	@Column(name ="CUSTOMS_BILL",nullable=true,length=50)
 	public java.lang.String getCustomsBill(){
 		return this.customsBill;
 	}
@@ -821,13 +708,10 @@ public class TaaediDeclarationMainEntity implements java.io.Serializable {
 	public void setCustomsBill(java.lang.String customsBill){
 		this.customsBill = customsBill;
 	}
-	
 	/**
 	 *方法: 取得java.lang.String
 	 *@return: java.lang.String  税单
 	 */
-	
-	@Column(name ="TAX_BILL",nullable=true,length=50)
 	public java.lang.String getTaxBill(){
 		return this.taxBill;
 	}
@@ -839,13 +723,10 @@ public class TaaediDeclarationMainEntity implements java.io.Serializable {
 	public void setTaxBill(java.lang.String taxBill){
 		this.taxBill = taxBill;
 	}
-	
 	/**
 	 *方法: 取得java.lang.String
 	 *@return: java.lang.String  进岸清单
 	 */
-	
-	@Column(name ="IMP_LIST",nullable=true,length=50)
 	public java.lang.String getImpList(){
 		return this.impList;
 	}
@@ -857,13 +738,10 @@ public class TaaediDeclarationMainEntity implements java.io.Serializable {
 	public void setImpList(java.lang.String impList){
 		this.impList = impList;
 	}
-	
 	/**
 	 *方法: 取得java.lang.String
 	 *@return: java.lang.String  是否紧急标志
 	 */
-	
-	@Column(name ="URGENT_FLAG",nullable=true,length=50)
 	public java.lang.String getUrgentFlag(){
 		return this.urgentFlag;
 	}
@@ -875,13 +753,10 @@ public class TaaediDeclarationMainEntity implements java.io.Serializable {
 	public void setUrgentFlag(java.lang.String urgentFlag){
 		this.urgentFlag = urgentFlag;
 	}
-	
 	/**
 	 *方法: 取得java.lang.Integer
 	 *@return: java.lang.Integer  附件标志
 	 */
-	
-	@Column(name ="ATTACHMENT_FLAG",nullable=true,length=3)
 	public java.lang.Integer getAttachmentFlag(){
 		return this.attachmentFlag;
 	}
@@ -893,13 +768,10 @@ public class TaaediDeclarationMainEntity implements java.io.Serializable {
 	public void setAttachmentFlag(java.lang.Integer attachmentFlag){
 		this.attachmentFlag = attachmentFlag;
 	}
-	
 	/**
 	 *方法: 取得java.lang.Integer
 	 *@return: java.lang.Integer  预警提示
 	 */
-	
-	@Column(name ="REMARK_FLAG",nullable=true,length=3)
 	public java.lang.Integer getRemarkFlag(){
 		return this.remarkFlag;
 	}
@@ -911,13 +783,10 @@ public class TaaediDeclarationMainEntity implements java.io.Serializable {
 	public void setRemarkFlag(java.lang.Integer remarkFlag){
 		this.remarkFlag = remarkFlag;
 	}
-	
 	/**
 	 *方法: 取得java.lang.String
 	 *@return: java.lang.String  备注
 	 */
-	
-	@Column(name ="MEMO",nullable=true,length=500)
 	public java.lang.String getMemo(){
 		return this.memo;
 	}
@@ -929,13 +798,10 @@ public class TaaediDeclarationMainEntity implements java.io.Serializable {
 	public void setMemo(java.lang.String memo){
 		this.memo = memo;
 	}
-	
 	/**
 	 *方法: 取得java.lang.Integer
 	 *@return: java.lang.Integer  删除标记
 	 */
-	
-	@Column(name ="DELFLAG",nullable=true,length=2)
 	public java.lang.Integer getDelflag(){
 		return this.delflag;
 	}
@@ -947,13 +813,10 @@ public class TaaediDeclarationMainEntity implements java.io.Serializable {
 	public void setDelflag(java.lang.Integer delflag){
 		this.delflag = delflag;
 	}
-	
 	/**
 	 *方法: 取得java.util.Date
 	 *@return: java.util.Date  删除时间
 	 */
-	
-	@Column(name ="DEL_DATE",nullable=true,length=20)
 	public java.util.Date getDelDate(){
 		return this.delDate;
 	}
@@ -965,5 +828,23 @@ public class TaaediDeclarationMainEntity implements java.io.Serializable {
 	public void setDelDate(java.util.Date delDate){
 		this.delDate = delDate;
 	}
-	
+
+	/**保存-二次报关箱单明细*/
+    @ExcelCollection(name="二次报关箱单明细")
+	private List<TaaediDeclarationSecondPacklistEntity> taaediDeclarationSecondPacklistList = new ArrayList<TaaediDeclarationSecondPacklistEntity>();
+		public List<TaaediDeclarationSecondPacklistEntity> getTaaediDeclarationSecondPacklistList() {
+		return taaediDeclarationSecondPacklistList;
+		}
+		public void setTaaediDeclarationSecondPacklistList(List<TaaediDeclarationSecondPacklistEntity> taaediDeclarationSecondPacklistList) {
+		this.taaediDeclarationSecondPacklistList = taaediDeclarationSecondPacklistList;
+		}
+	/**保存-二次报关明细*/
+    @ExcelCollection(name="二次报关明细")
+	private List<TaaediDeclarationSecondDetailEntity> taaediDeclarationSecondDetailList = new ArrayList<TaaediDeclarationSecondDetailEntity>();
+		public List<TaaediDeclarationSecondDetailEntity> getTaaediDeclarationSecondDetailList() {
+		return taaediDeclarationSecondDetailList;
+		}
+		public void setTaaediDeclarationSecondDetailList(List<TaaediDeclarationSecondDetailEntity> taaediDeclarationSecondDetailList) {
+		this.taaediDeclarationSecondDetailList = taaediDeclarationSecondDetailList;
+		}
 }
